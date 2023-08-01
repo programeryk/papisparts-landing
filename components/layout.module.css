@@ -1,0 +1,14 @@
+.imageLogo {
+    user-select: none;
+    pointer-events: none;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #e7eaeb;
+    transition: opacity 0.1s ease 0s;
+    padding: 10px 300px 20px 300px;
+    z-index: 1000;
+    width: 100%;
+}
