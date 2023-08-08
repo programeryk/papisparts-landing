@@ -1,5 +1,3 @@
-"use client";
-
 import style from "./index.module.css";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
