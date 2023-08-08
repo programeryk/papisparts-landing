@@ -1,20 +1,50 @@
-.spacer {
-    aspect-ratio: 900/300;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-.layer1 {
-    background-image: url('../public/waves.svg');
-}
-
 .title {
     padding-right: 400px;
     padding-left: 400px;
 }
 
-.color {
-    background-color: #c72450;
+.layer1 {
+    background-color: #a00000;
+}
+
+.postcard { 
+    width: 100%;
+    height: 330px;
+    position: absolute;
+    z-index: -1;
+    background-color: #ec0b43;
+    bottom: 230px;
+}
+
+
+.postcard1 { 
+    width: 100%;
+    height: 330px;
+    position: absolute;
+    z-index: -2;
+    background-color: #ffb222;
+    bottom: 250px;
+    opacity: 0;
+}
+
+.layer2 {
+    margin-top: -20px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        #fff
+      )
+      #e7eaeb;
+}
+
+.list {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    justify-content: center;
+    align-items: center;
 }

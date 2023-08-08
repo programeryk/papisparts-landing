@@ -76,20 +76,6 @@ export default function RootLayout({ children }) {
         </ul>
       </motion.div>
 
-      <div className='flex flex-col items-center justify-between h-32'>
-        <Link href='/' >
-          <Image
-            src="/logoblank.png"
-            alt="Papis logo"
-            className={style.imageLogo}
-            style={router.pathname === '/' ? {visibility: 'visible', marginTop: -50 } : {visibility: 'hidden' ,marginTop: -50 }}
-            width={300}
-            height={100}
-            priority
-          />
-        </Link>
-      </div>
-
 
 
       <main className={inter.className}>{children}</main>

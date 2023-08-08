@@ -4,6 +4,7 @@ import style from "./index.module.css";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 let bgimgs = [
   {
@@ -40,6 +41,20 @@ export default function Home() {
 
   return (
     <main className={`flex min-h-screen flex-col items-center justify-between p-24 ${style.main}`}>
+
+      <div className='flex flex-col items-center justify-between h-32'>
+        <Link href='/' >
+          <Image
+            src="/logoblank.png"
+            alt="Papis logo"
+            className={style.imageLogo}
+            style={{marginTop: -120 }}
+            width={300}
+            height={100}
+            priority
+          />
+        </Link>
+      </div>
       <header className={`relative flex items-center justify-center bg-slate-900 ${style.header} ${style.background}`}>
         <div className="flex items-center justify-center headerContent">
           <h1 className={`${style.papispartsTitle} font-bold`}>Bez przerwy w drodze</h1>
@@ -60,7 +75,7 @@ export default function Home() {
           animate={{ opacity: 0.5, x: 0 }}
           transition={{ duration: 1, type: 'spring', stiffness: 100 }} />
       </header>
-      
+
       <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-3 lg:text-left">
         <a
           href="./about.jsx"
@@ -94,11 +109,9 @@ export default function Home() {
           </p>
         </Link>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+        <Link
+          href="/contact"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
         >
           <h2 className={`mb-3 text-2xl font-semibold`}>
             Kontakt{" "}
@@ -109,7 +122,19 @@ export default function Home() {
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
             Potrzebujesz pomocy? Skontaktuj się z nami!
           </p>
-        </a>
+        </Link>
+      </div>
+      <div>
+        <ul>
+          <li>t</li>
+          <li>t</li>
+          <li>t</li>
+          <li>t</li>
+          <li>t</li>
+          <li>t</li>
+          <li>t</li>
+          <li>t</li>
+        </ul>
       </div>
     </main>
   );
