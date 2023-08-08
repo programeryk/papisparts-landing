@@ -7,10 +7,10 @@ import { useState } from 'react'
 import { useRouter } from 'next/router';
 
 const inter = Inter({ subsets: ['latin'] })
-export const metadata = {
-  title: 'Papis Parts',
-  description: 'strona części samochodowych',
-}
+// export const metadata = {
+//   title: 'Papis Parts',
+//   description: 'strona części samochodowych',
+// }
 
 export default function RootLayout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
