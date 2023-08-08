@@ -52,10 +52,9 @@ export default function RootLayout({ children }) {
           <Image
             src="/logoblank.png"
             alt="Papis logo"
-            className={style.imageLogo}
+            className={`${style.imageLogo}`}
             width={200}
             height={60}
-            style={{ marginTop: 10 }}
             priority
           />
         </Link>

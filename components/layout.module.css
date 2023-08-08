@@ -1,7 +1,7 @@
 .imageLogo {
     user-select: none;
     pointer-events: none;
-    margin-top: 150px;
+    margin-bottom: 40px;
 }
 
 .nav {
@@ -12,4 +12,17 @@
     padding: 10px 300px 20px 300px;
     z-index: 1000;
     width: 100%;
+}
+
+@media only screen and (max-width: 780px) {
+
+    .nav {
+        padding: 0;
+        background-color: red;
+        height: 80px;
+    }
+
+    .nav ul {
+        visibility: hidden;
+    }
 }
