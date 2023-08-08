@@ -1,6 +1,7 @@
 .imageLogo {
     user-select: none;
     pointer-events: none;
+    margin-top: 150px;
 }
 
 .nav {
