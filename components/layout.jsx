@@ -14,10 +14,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentPath, setCurrentPath] = useState('');
   const router = useRouter();
-
-
 
   const toggleMenu = () => {
     if (window.scrollY > 127) {
@@ -47,7 +44,6 @@ export default function RootLayout({ children }) {
     }
   ]
 
-
   return (
     <>
       <motion.div className={`${style.nav}`}
@@ -75,9 +71,6 @@ export default function RootLayout({ children }) {
           )}
         </ul>
       </motion.div>
-
-
-
       <main className={inter.className}>{children}</main>
     </>
   )
