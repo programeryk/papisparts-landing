@@ -9,7 +9,7 @@ export default function Contact() {
     return (
         <>
             <div className="h-64 text-center bg-red-600"><h1 className="text-6xl font-bold pt-24 text-slate-100">Kontakt</h1></div>
-            <div className="grid grid-cols-2 gird-rows-3 justify-center items-center text-center">
+            <div className="grid grid-cols-2 grid-rows-3 justify-center items-center text-center">
                 {gridItems.map(item => (<div className={`h-96 pt-24 ${item.bg}`}>
                     <h1 className="text-2xl">{item.name}</h1>
                     <p>{item.desc}</p>
