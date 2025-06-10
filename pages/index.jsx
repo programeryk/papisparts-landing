@@ -55,18 +55,6 @@ export default function Home() {
     },
   ];
 
-  let test = () => {
-    while (true) {
-      let x, y, z;
-      x, (y = 1);
-      z = x + y;
-      x = z;
-      if (x > 50000) {
-        console.log(z);
-        return;
-      }
-    }
-  };
 
   return (
     <main
@@ -149,7 +137,6 @@ export default function Home() {
           <li>t</li>
           <li>t</li>
         </ul>
-        <p>{test()}</p>
       </div>
     </main>
   );
