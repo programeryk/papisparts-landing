@@ -1,156 +1,97 @@
-import style from "./index.module.css";
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import Image from "next/image";
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import WhatsAppButton from '../components/WhatsAppButton';
 
-let bgimgs = [
+const bgimgs = [
   {
-    url: "https://images.unsplash.com/photo-1668532069615-3dfc89a92645?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1983&q=80",
+    url: 'https://images.unsplash.com/photo-1668532069615-3dfc89a92645?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1983&q=80'
   },
   {
-    url: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1631&q=80",
+    url: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1631&q=80'
   },
   {
-    url: "https://images.unsplash.com/photo-1548184274-f1d3776448b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    url: 'https://images.unsplash.com/photo-1548184274-f1d3776448b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
+  }
+];
+
+const links = [
+  {
+    name: 'Sklep',
+    href: '/store',
+    desc: 'Sprawdź czy może znajdziesz coś dla siebie.'
   },
+  {
+    name: 'O nas',
+    href: '/about',
+    desc: 'Wszystko co możesz chcieć o nas wiedzieć.'
+  },
+  {
+    name: 'Kontakt',
+    href: '/contact',
+    desc: 'Potrzebujesz pomocy? Skontaktuj się z nami!'
+  }
 ];
 
 export default function Home() {
-  let [imgIndex, setImgIndex] = useState(0);
-
-  function changeImage(e) {
-    let index = bgimgs.findIndex((img) => img.url === e.target.id); // find index of clicked image
-    setImgIndex(index);
-    console.log(`this is the image index ${imgIndex}`);
-  }
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (imgIndex > bgimgs.length - 1) {
-        setImgIndex(0);
-      } else {
-        setImgIndex(imgIndex++);
-      }
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % bgimgs.length);
     }, 5000);
-
-    return () => clearInterval(intervalId);
+    return () => clearInterval(id);
   }, []);
 
-  const links = [
-    {
-      name: "Sklep",
-      href: "/store",
-      desc: "Sprawdź czy może znajdziesz coś dla siebie.",
-    },
-    {
-      name: "O nas",
-      href: "/about",
-      desc: "Wszystko co możesz chcieć o nas wiedzieć.",
-    },
-    {
-      name: "Kontakt",
-      href: "/contact",
-      desc: "Potrzebujesz pomocy? Skontaktuj się z nami!",
-    },
-  ];
-
-  let test = () => {
-    while (true) {
-      let x, y, z;
-      x, (y = 1);
-      z = x + y;
-      x = z;
-      if (x > 50000) {
-        console.log(z);
-        return;
-      }
-    }
-  };
-
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between ${style.main} `}
-    >
-      <div className="flex flex-col items-center justify-between h-32">
-        <Link href="/">
-          <Image
-            src="/logoblank.png"
-            alt="Papis logo"
-            className={style.imageLogo}
-            width={300}
-            height={100}
-            priority
-          />
-        </Link>
-      </div>
-
-      <header
-        className={`relative flex items-center justify-center bg-slate-900 ${style.header} ${style.background}`}
-      >
-        <div className="flex flex-col items-center justify-center">
-          <h1 className={`${style.papispartsTitle} font-bold mx-6`}>
-            Bez przerwy w drodze
-          </h1>
-
-          <ul className="ml-12 mr-10">
-            {bgimgs.map((img) => {
-              return (
-                <motion.li
-                  className={`rounded-full w-2 h-2 mt-2 bg-red-900 cursor-pointer inline-block mx-2`}
-                  style={{
-                    backgroundColor: `${
-                      img.url === bgimgs[imgIndex].url ? "red" : "white"
-                    }`,
-                  }}
-                  onClick={changeImage}
-                  id={img.url}
-                  key={img.url}
-                ></motion.li>
-              );
-            })}
-          </ul>
+    <main className="relative overflow-hidden text-gray-900 dark:text-gray-100">
+      <section className="relative flex h-screen flex-col items-center justify-center text-center">
+        <Image src={bgimgs[index].url} fill priority alt="hero" className="object-cover" />
+        <div className="absolute inset-0 bg-black/60" />
+        <h1 className="z-10 text-5xl font-bold md:text-7xl">Bez przerwy w drodze</h1>
+        <div className="z-10 mt-6 flex space-x-2">
+          {bgimgs.map((img, i) => (
+            <button
+              key={img.url}
+              onClick={() => setIndex(i)}
+              className={`h-3 w-3 rounded-full ${i === index ? 'bg-red-600' : 'bg-white/50'}`}
+            />
+          ))}
         </div>
-        <motion.img
-          src={bgimgs[imgIndex].url}
-          alt="header image"
-          className={style.headerImg}
-          key={bgimgs[imgIndex].url}
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 0.5, x: 0 }}
-          transition={{ duration: 1, type: "spring", stiffness: 100 }}
-        />
-      </header>
+      </section>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-3 lg:text-left mt-12">
-        {links.map((link) => (
-          <Link
-            href={link.href}
-            className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          >
-            <h2 className={`mb-3 text-2xl font-semibold`}>
-              {link.name}{" "}
-              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                -&gt;
-              </span>
-            </h2>
-            <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>{link.desc}</p>
-          </Link>
-        ))}
-      </div>
-      <div>
-        <ul>
-          <li>t</li>
-          <li>t</li>
-          <li>t</li>
-          <li>t</li>
-          <li>t</li>
-          <li>t</li>
-          <li>t</li>
-          <li>t</li>
-        </ul>
-        <p>{test()}</p>
-      </div>
+      <section id="about" className="bg-gray-100 px-6 py-20 dark:bg-gray-900 text-center">
+        <h2 className="mb-4 text-4xl font-bold">O nas</h2>
+        <p className="mx-auto max-w-2xl text-gray-700 dark:text-gray-300">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, necessitatibus veritatis reprehenderit voluptatibus, officia praesentium possimus quod.
+        </p>
+      </section>
+
+      <section id="products" className="px-6 py-20 text-center">
+        <h2 className="mb-8 text-4xl font-bold">Produkty</h2>
+        <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-3">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-lg border border-gray-200 p-6 transition hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800"
+            >
+              <h3 className="mb-2 text-2xl font-semibold">{link.name}</h3>
+              <p className="text-gray-600 dark:text-gray-400">{link.desc}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section id="contact" className="bg-gray-100 px-6 py-20 text-center dark:bg-gray-900">
+        <h2 className="mb-4 text-4xl font-bold">Kontakt</h2>
+        <p className="mb-6 text-gray-700 dark:text-gray-300">Masz pytania? Skontaktuj się z nami!</p>
+        <Link href="/contact" className="font-semibold text-red-600 hover:underline">
+          Przejdź do kontaktu
+        </Link>
+      </section>
+
+      <WhatsAppButton />
     </main>
   );
 }
