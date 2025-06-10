@@ -3,8 +3,10 @@ import Image from 'next/image'
 import style from './layout.module.css'
 import Link from 'next/link'
 import { motion } from "framer-motion";
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router';
+import Footer from './Footer';
+import WhatsappButton from './WhatsappButton';
 
 const inter = Inter({ subsets: ['latin'] })
 // export const metadata = {
@@ -16,18 +18,14 @@ export default function RootLayout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
 
-  const toggleMenu = () => {
-    if (window.scrollY > 127) {
-      setIsMenuOpen(true);
-    } else {
-      setIsMenuOpen(false);
-    }
-  }
-
-  if (typeof window !== 'undefined') {
+  useEffect(() => {
+    const toggleMenu = () => {
+      setIsMenuOpen(window.scrollY > 127);
+    };
     window.addEventListener('scroll', toggleMenu);
-
-  }
+    toggleMenu();
+    return () => window.removeEventListener('scroll', toggleMenu);
+  }, []);
 
   const navItems = [
     {
@@ -46,8 +44,24 @@ export default function RootLayout({ children }) {
 
   return (
     <>
-      <motion.div className={`${style.nav}`}
-        style={router.pathname === '/' ? { opacity: isMenuOpen ? 100 : 0, position: 'fixed' } : {}}>
+      <motion.div
+        className={`${style.nav}`}
+        style={
+          router.pathname === '/' && !isMenuOpen
+            ? {
+                opacity: 0,
+                pointerEvents: 'none',
+                position: 'fixed',
+                width: '100%',
+              }
+            : {
+                opacity: 1,
+                pointerEvents: 'auto',
+                position: 'fixed',
+                width: '100%',
+              }
+        }
+      >
         <Link href='/' >
           <Image
             src="/logoblank.png"
@@ -71,6 +85,8 @@ export default function RootLayout({ children }) {
         </ul>
       </motion.div>
       <main className={inter.className}>{children}</main>
+      <Footer />
+      <WhatsappButton />
     </>
   )
 }
