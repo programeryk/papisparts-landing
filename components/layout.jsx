@@ -27,7 +27,9 @@ export default function RootLayout({ children }) {
     return () => window.removeEventListener('scroll', toggleMenu);
   }, []);
 
+
   const shouldShowMargin = router.pathname !== '/' || isMenuOpen;
+
 
   const navItems = [
     {
@@ -87,6 +89,7 @@ export default function RootLayout({ children }) {
         </ul>
       </motion.div>
       <main className={`${inter.className} ${shouldShowMargin ? style.mainContentWithNav : ''}`}>{children}</main>
+
       <Footer />
       <WhatsappButton />
     </>
