@@ -29,6 +29,7 @@ export default function RootLayout({ children }) {
 
   const shouldShowMargin = router.pathname !== '/' || isMenuOpen;
 
+
   const navItems = [
     {
       name: 'Sklep',
@@ -56,13 +57,13 @@ export default function RootLayout({ children }) {
                 position: 'fixed',
                 width: '100%',
                 top: 0,
+
               }
             : {
                 opacity: 1,
                 pointerEvents: 'auto',
                 position: 'fixed',
                 width: '100%',
-                top: 0,
               }
         }
       >
