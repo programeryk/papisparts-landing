@@ -1,23 +1,57 @@
-import style from "./index.module.css";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import WhatsAppButton from "../components/WhatsAppButton";
 
-let bgimgs = [
+
+const bgimgs = [
   {
-    url: "https://images.unsplash.com/photo-1668532069615-3dfc89a92645?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1983&q=80",
+    url: 'https://images.unsplash.com/photo-1668532069615-3dfc89a92645?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1983&q=80'
   },
   {
-    url: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1631&q=80",
+    url: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1631&q=80'
   },
   {
-    url: "https://images.unsplash.com/photo-1548184274-f1d3776448b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    url: 'https://images.unsplash.com/photo-1548184274-f1d3776448b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
+  }
+];
+
+const links = [
+  {
+    name: 'Sklep',
+    href: '/store',
+    desc: 'Sprawdź czy może znajdziesz coś dla siebie.'
+  },
+  {
+    name: 'O nas',
+    href: '/about',
+    desc: 'Wszystko co możesz chcieć o nas wiedzieć.'
+  },
+  {
+    name: 'Kontakt',
+    href: '/contact',
+    desc: 'Potrzebujesz pomocy? Skontaktuj się z nami!'
+  }
+];
+
+const links = [
+  {
+    name: "Sklep",
+    href: "/store",
+    desc: "Sprawdź czy może znajdziesz coś dla siebie.",
+  },
+  {
+    name: "O nas",
+    href: "/about",
+    desc: "Wszystko co możesz chcieć o nas wiedzieć.",
+  },
+  {
+    name: "Kontakt",
+    href: "/contact",
+    desc: "Potrzebujesz pomocy? Skontaktuj się z nami!",
   },
 ];
 
-export default function Home() {
-  let [imgIndex, setImgIndex] = useState(0);
 
   function changeImage(e) {
     let index = bgimgs.findIndex((img) => img.url === e.target.id);
@@ -27,9 +61,9 @@ export default function Home() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setImgIndex((i) => (i + 1) % bgimgs.length);
-    }, 5000);
 
-    return () => clearInterval(intervalId);
+    }, 5000);
+    return () => clearInterval(id);
   }, []);
 
   const links = [
