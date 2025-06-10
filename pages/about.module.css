@@ -1,40 +1,43 @@
-.title {
-    padding-right: 400px;
-    padding-left: 400px;
-}
-
 .layer1 {
+    position: relative;
     background-color: #a00000;
+    z-index: 1;
+    width: 75%;
 }
 
-.postcard { 
-    width: 100%;
-    height: 330px;
-    position: absolute;
-    z-index: -1;
+.postcard {
+    position: relative;
+    margin-bottom: -570px;
+    margin-left: 40px;
+    width: 75%;
+    height: 590px;
     background-color: #ec0b43;
-    bottom: 230px;
+}
+
+.postcards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
-.postcard1 { 
-    width: 100%;
-    height: 330px;
-    position: absolute;
-    z-index: -2;
-    background-color: #ffb222;
-    bottom: 250px;
+.postcard1 {
+    margin-bottom: -570px;
     opacity: 0;
+    margin-left: 80px;
+    width: 75%;
+    background-color: #ffb222;
+    height: 610px;
+    position: relative;
 }
 
 .layer2 {
-    margin-top: -20px;
-    background: linear-gradient(
-        to bottom,
-        transparent,
-        #fff
-      )
-      #e7eaeb;
+    position: relative;
+    background: linear-gradient(to bottom,
+            transparent,
+            #fff) #e7eaeb;
+    z-index: 200;
 }
 
 .list {
@@ -47,4 +50,27 @@
 .dot {
     justify-content: center;
     align-items: center;
+}
+
+.link {
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.main {
+    background: linear-gradient(to bottom,
+            transparent,
+            #fbfeff) #e7eaeb;
+    color: #0c0c0c;
+    overflow: hidden;
+}
+
+
+@media only screen and (min-width: 1200px) {
+    .title {
+        padding-right: 400px;
+        padding-left: 400px;
+    }
+
+    
 }

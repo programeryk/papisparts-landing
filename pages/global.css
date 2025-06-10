@@ -19,13 +19,13 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  color: rgb(var(--foreground-rgb));
-  background:
-    var(--background-start-color);
+  background: linear-gradient(to bottom,
+      transparent,
+      #fbfeff) #e7eaeb;
+  color: #0c0c0c;
 }
 
 li a:hover {
   transition: 0.2s;
   color: #c72450;
 }
-

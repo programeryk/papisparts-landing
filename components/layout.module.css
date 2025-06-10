@@ -6,6 +6,7 @@
 
 .nav {
     display: flex;
+    color: #0c0c0c;
     justify-content: space-between;
     background-color: #e7eaeb;
     transition: opacity 0.1s ease 0s;
@@ -18,7 +19,6 @@
 
     .nav {
         padding: 0;
-        background-color: red;
         height: 80px;
     }
 
