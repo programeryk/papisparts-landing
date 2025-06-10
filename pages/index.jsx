@@ -3,16 +3,35 @@ import Image from "next/image";
 import Link from "next/link";
 import WhatsAppButton from "../components/WhatsAppButton";
 
+
 const bgimgs = [
   {
-    url: "https://images.unsplash.com/photo-1668532069615-3dfc89a92645?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1983&q=80",
+    url: 'https://images.unsplash.com/photo-1668532069615-3dfc89a92645?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1983&q=80'
   },
   {
-    url: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1631&q=80",
+    url: 'https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1631&q=80'
   },
   {
-    url: "https://images.unsplash.com/photo-1548184274-f1d3776448b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    url: 'https://images.unsplash.com/photo-1548184274-f1d3776448b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
+  }
+];
+
+const links = [
+  {
+    name: 'Sklep',
+    href: '/store',
+    desc: 'Sprawdź czy może znajdziesz coś dla siebie.'
   },
+  {
+    name: 'O nas',
+    href: '/about',
+    desc: 'Wszystko co możesz chcieć o nas wiedzieć.'
+  },
+  {
+    name: 'Kontakt',
+    href: '/contact',
+    desc: 'Potrzebujesz pomocy? Skontaktuj się z nami!'
+  }
 ];
 
 const links = [
@@ -33,6 +52,7 @@ const links = [
   },
 ];
 
+
 export default function Home() {
   const [index, setIndex] = useState(0);
 
@@ -42,6 +62,7 @@ export default function Home() {
     }, 5000);
     return () => clearInterval(id);
   }, []);
+
 
   return (
     <main className="relative overflow-hidden text-gray-900">
@@ -63,10 +84,12 @@ export default function Home() {
               key={img.url}
               onClick={() => setIndex(i)}
               className={`h-3 w-3 rounded-full ${i === index ? "bg-red-600" : "bg-white/50"}`}
+
             />
           ))}
         </div>
       </section>
+
 
       <section id="about" className="bg-gray-100 px-6 py-20 text-center">
         <h2 className="mb-4 text-4xl font-bold">O nas</h2>
@@ -74,6 +97,7 @@ export default function Home() {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
           necessitatibus veritatis reprehenderit voluptatibus, officia
           praesentium possimus quod.
+
         </p>
       </section>
 
@@ -84,10 +108,12 @@ export default function Home() {
             <Link
               key={link.href}
               href={link.href}
+
               className="rounded-lg border border-gray-200 p-6 transition hover:bg-gray-100"
             >
               <h3 className="mb-2 text-2xl font-semibold">{link.name}</h3>
               <p className="text-gray-600">{link.desc}</p>
+
             </Link>
           ))}
         </div>
@@ -107,6 +133,7 @@ export default function Home() {
       </section>
 
       <WhatsAppButton />
+
     </main>
   );
 }
