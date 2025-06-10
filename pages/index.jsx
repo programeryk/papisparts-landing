@@ -20,18 +20,13 @@ export default function Home() {
   let [imgIndex, setImgIndex] = useState(0);
 
   function changeImage(e) {
-    let index = bgimgs.findIndex((img) => img.url === e.target.id); // find index of clicked image
+    let index = bgimgs.findIndex((img) => img.url === e.target.id);
     setImgIndex(index);
-    console.log(`this is the image index ${imgIndex}`);
   }
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      if (imgIndex > bgimgs.length - 1) {
-        setImgIndex(0);
-      } else {
-        setImgIndex(imgIndex++);
-      }
+      setImgIndex((i) => (i + 1) % bgimgs.length);
     }, 5000);
 
     return () => clearInterval(intervalId);
@@ -55,23 +50,8 @@ export default function Home() {
     },
   ];
 
-  let test = () => {
-    while (true) {
-      let x, y, z;
-      x, (y = 1);
-      z = x + y;
-      x = z;
-      if (x > 50000) {
-        console.log(z);
-        return;
-      }
-    }
-  };
-
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between ${style.main} `}
-    >
+    <main className={`flex min-h-screen flex-col items-center justify-between ${style.main} `}>
       <div className="flex flex-col items-center justify-between h-32">
         <Link href="/">
           <Image
@@ -94,21 +74,17 @@ export default function Home() {
           </h1>
 
           <ul className="ml-12 mr-10">
-            {bgimgs.map((img) => {
-              return (
-                <motion.li
-                  className={`rounded-full w-2 h-2 mt-2 bg-red-900 cursor-pointer inline-block mx-2`}
-                  style={{
-                    backgroundColor: `${
-                      img.url === bgimgs[imgIndex].url ? "red" : "white"
-                    }`,
-                  }}
-                  onClick={changeImage}
-                  id={img.url}
-                  key={img.url}
-                ></motion.li>
-              );
-            })}
+            {bgimgs.map((img) => (
+              <motion.li
+                className={`rounded-full w-2 h-2 mt-2 bg-red-900 cursor-pointer inline-block mx-2`}
+                style={{
+                  backgroundColor: `${img.url === bgimgs[imgIndex].url ? "red" : "white"}`,
+                }}
+                onClick={changeImage}
+                id={img.url}
+                key={img.url}
+              ></motion.li>
+            ))}
           </ul>
         </div>
         <motion.img
@@ -149,7 +125,6 @@ export default function Home() {
           <li>t</li>
           <li>t</li>
         </ul>
-        <p>{test()}</p>
       </div>
     </main>
   );
