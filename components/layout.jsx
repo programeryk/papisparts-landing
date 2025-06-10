@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { motion } from "framer-motion";
 import { useState } from 'react'
 import { useRouter } from 'next/router';
+import Footer from './Footer';
+import WhatsappButton from './WhatsappButton';
 
 const inter = Inter({ subsets: ['latin'] })
 // export const metadata = {
@@ -71,6 +73,8 @@ export default function RootLayout({ children }) {
         </ul>
       </motion.div>
       <main className={inter.className}>{children}</main>
+      <Footer />
+      <WhatsappButton />
     </>
   )
 }
