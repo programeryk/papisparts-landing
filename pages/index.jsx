@@ -43,6 +43,8 @@ export default function Home() {
     return () => clearInterval(id);
   }, []);
 
+ 4aqmwi-codex/fix-rendering-issues-in-next.js-13-app
+
   return (
     <main className="relative overflow-hidden text-gray-900 dark:text-gray-100">
       <section className="relative flex h-screen flex-col items-center justify-center text-center">
@@ -91,7 +93,9 @@ export default function Home() {
         </Link>
       </section>
 
+ 4aqmwi-codex/fix-rendering-issues-in-next.js-13-app
       <WhatsAppButton />
+
     </main>
   );
 }
