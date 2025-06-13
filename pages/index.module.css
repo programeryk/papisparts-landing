@@ -34,10 +34,6 @@
     color: #0c0c0c;
 }
 
-.imageLogo {
-    margin-top: -100px;
-}
-
 @media only screen and (max-width: 1340px) {
     .papispartsTitle {
         text-align: center;

@@ -1,7 +1,6 @@
 .imageLogo {
     user-select: none;
     pointer-events: none;
-    margin-bottom: 40px;
 }
 
 .nav {
@@ -13,6 +12,12 @@
     padding: 10px 300px 20px 300px;
     z-index: 1000;
     width: 100%;
+}
+
+.navHidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    /* Optionally: display: none; */
 }
 
 @media only screen and (max-width: 780px) {

@@ -20,52 +20,27 @@ export default function Home() {
   let [imgIndex, setImgIndex] = useState(0);
 
   function changeImage(e) {
-    let index = bgimgs.findIndex((img) => img.url === e.target.id); // find index of clicked image
+    const index = bgimgs.findIndex((img) => img.url === e.target.dataset.url);
     setImgIndex(index);
-    console.log(`this is the image index ${imgIndex}`);
   }
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      if (imgIndex > bgimgs.length - 1) {
-        setImgIndex(0);
-      } else {
-        setImgIndex(imgIndex++);
-      }
+      setImgIndex((prev) => (prev + 1 >= bgimgs.length ? 0 : prev + 1));
     }, 5000);
 
     return () => clearInterval(intervalId);
-  }, []);
-
-  const links = [
-    {
-      name: "Sklep",
-      href: "/store",
-      desc: "Sprawdź czy może znajdziesz coś dla siebie.",
-    },
-    {
-      name: "O nas",
-      href: "/about",
-      desc: "Wszystko co możesz chcieć o nas wiedzieć.",
-    },
-    {
-      name: "Kontakt",
-      href: "/contact",
-      desc: "Potrzebujesz pomocy? Skontaktuj się z nami!",
-    },
-  ];
-
+  }, [imgIndex]); // <-- dependency on imgIndex!
 
   return (
     <main
       className={`flex min-h-screen flex-col items-center justify-between ${style.main} `}
     >
-      <div className="flex flex-col items-center justify-between h-32">
+      <div className="flex flex-col items-center mb-16">
         <Link href="/">
           <Image
             src="/logoblank.png"
             alt="Papis logo"
-            className={style.imageLogo}
             width={300}
             height={100}
             priority
@@ -82,19 +57,20 @@ export default function Home() {
           </h1>
 
           <ul className="ml-12 mr-10">
-            {bgimgs.map((img) => {
+            {bgimgs.map((img, index) => {
               return (
-                <motion.li
-                  className={`rounded-full w-2 h-2 mt-2 bg-red-900 cursor-pointer inline-block mx-2`}
+                <motion.button
+                  className="rounded-full w-2 h-2 mt-2 bg-red-900 cursor-pointer inline-block mx-2"
                   style={{
-                    backgroundColor: `${
-                      img.url === bgimgs[imgIndex].url ? "red" : "white"
-                    }`,
+                    backgroundColor:
+                      img.url === bgimgs[imgIndex].url ? "#c72450" : "white",
                   }}
                   onClick={changeImage}
-                  id={img.url}
+                  data-url={img.url}
                   key={img.url}
-                ></motion.li>
+                  aria-label={`Wybierz zdjęcie ${index + 1}`}
+                  tabIndex={0}
+                />
               );
             })}
           </ul>
@@ -111,33 +87,9 @@ export default function Home() {
       </header>
 
       <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-3 lg:text-left mt-12">
-        {links.map((link) => (
-          <Link
-            href={link.href}
-            className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          >
-            <h2 className={`mb-3 text-2xl font-semibold`}>
-              {link.name}{" "}
-              <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-                -&gt;
-              </span>
-            </h2>
-            <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>{link.desc}</p>
-          </Link>
-        ))}
+
       </div>
-      <div>
-        <ul>
-          <li>t</li>
-          <li>t</li>
-          <li>t</li>
-          <li>t</li>
-          <li>t</li>
-          <li>t</li>
-          <li>t</li>
-          <li>t</li>
-        </ul>
-      </div>
+      <div style={{ height: "120px" }} />
     </main>
   );
 }

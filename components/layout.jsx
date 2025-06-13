@@ -31,25 +31,10 @@ export default function RootLayout({ children }) {
 
   }
 
-  const navItems = [
-    {
-      name: 'Sklep',
-      link: '/store'
-    },
-    {
-      name: 'O nas',
-      link: '/about'
-    },
-    {
-      name: 'Kontakt',
-      link: '/contact'
-    }
-  ]
-
   return (
     <>
-      <motion.div className={`${style.nav}`}
-        style={router.pathname === '/' ? { opacity: isMenuOpen ? 100 : 0, position: 'fixed' } : {}}>
+      <motion.div className={`${style.nav} ${router.pathname === '/' && !isMenuOpen ? style.navHidden : ''}`}
+        style={router.pathname === '/' ? {position: 'fixed'} : {}}>
         <Link href='/' >
           <Image
             src="/logoblank.png"
@@ -60,17 +45,6 @@ export default function RootLayout({ children }) {
             priority
           />
         </Link>
-
-        <ul className={`flex items-center justify-center`}>
-          {navItems.map((item) => (
-            <li className={`mx-4`} key={item.link}>
-              <Link href={item.link}>
-                <p className={`text-xl`}>{item.name}</p>
-              </Link>
-            </li>
-          )
-          )}
-        </ul>
       </motion.div>
       <main className={inter.className}>{children}</main>
       <Footer />
