@@ -3,7 +3,7 @@ import Image from 'next/image'
 import style from './layout.module.css'
 import Link from 'next/link'
 import { motion } from "framer-motion";
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router';
 import Footer from './Footer';
 import WhatsappButton from './WhatsappButton';
@@ -18,18 +18,18 @@ export default function RootLayout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
 
-  const toggleMenu = () => {
-    if (window.scrollY > 127) {
-      setIsMenuOpen(true);
-    } else {
-      setIsMenuOpen(false);
-    }
-  }
+  useEffect(() => {
+    const toggleMenu = () => {
+      if (window.scrollY > 68) {
+        setIsMenuOpen(true);
+      } else {
+        setIsMenuOpen(false);
+      }
+    };
 
-  if (typeof window !== 'undefined') {
     window.addEventListener('scroll', toggleMenu);
-
-  }
+    return () => window.removeEventListener('scroll', toggleMenu); // cleanup
+  }, []);
 
   return (
     <>

@@ -1,33 +1,43 @@
 .imageLogo {
-    user-select: none;
-    pointer-events: none;
+  user-select: none;
+  /* pointer-events: none;   <--- REMOVE this line */
+  height: 48px; /* set to your preferred, usually 48–60px */
+  width: auto;
+  margin: 0 auto;
+  display: block;
 }
 
 .nav {
-    display: flex;
-    color: #0c0c0c;
-    justify-content: space-between;
-    background-color: #e7eaeb;
-    transition: opacity 0.1s ease 0s;
-    padding: 10px 300px 20px 300px;
-    z-index: 1000;
-    width: 100%;
+  display: flex;
+  color: #0c0c0c;
+  justify-content: center; /* <--- changed */
+  align-items: center; /* <--- add this for vertical centering */
+  background-color: #e7eaeb;
+  transition: opacity 0.1s ease 0s;
+  padding: 6px 0 6px 0; /* <--- less vertical and horizontal space */
+  z-index: 1000;
+  width: 100%;
+  height: 66px; /* <--- set a consistent height */
 }
 
 .navHidden {
-    opacity: 0 !important;
-    pointer-events: none !important;
-    /* Optionally: display: none; */
+  opacity: 0 !important;
+  pointer-events: none !important;
+  /* Optionally: display: none; */
 }
 
 @media only screen and (max-width: 780px) {
+  .nav {
+    height: 56px; /* make navbar shorter on mobile */
+    padding: 0;
+  }
 
-    .nav {
-        padding: 0;
-        height: 80px;
-    }
+  .nav ul {
+    visibility: hidden;
+  }
 
-    .nav ul {
-        visibility: hidden;
-    }
+  .imageLogo {
+    height: 38px;
+    width: auto;
+  }
 }
