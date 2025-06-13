@@ -74,7 +74,7 @@ export default function Home() {
                   className="rounded-full w-2 h-2 mt-2 bg-red-900 cursor-pointer inline-block mx-2"
                   style={{
                     backgroundColor:
-                      img.url === bgimgs[imgIndex].url ? "#c72450" : "white",
+                      img.url === bgimgs[imgIndex].url ? "#ce160e" : "white",
                   }}
                   onClick={changeImage}
                   data-url={img.url}
@@ -100,12 +100,12 @@ export default function Home() {
       {/* --- WHY US SECTION --- */}
       <section className="w-full max-w-3xl mx-auto mt-20 mb-12 px-4">
         <div className="bg-white/80 backdrop-blur rounded-2xl shadow-lg p-8 flex flex-col items-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#c72450] mb-4 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#ce160e] mb-4 tracking-tight">
             Dlaczego właśnie my?
           </h2>
           <p className="mb-6 text-base sm:text-lg text-gray-800 text-center max-w-xl">
             Papis Parts to{" "}
-            <span className="font-semibold text-[#c72450]">
+              <span className="font-semibold text-[#ce160e]">
               lata doświadczenia
             </span>
             , szybka obsługa i najlepsze ceny na rynku. Dobieramy części do
@@ -123,9 +123,9 @@ export default function Home() {
       {/* --- LOCATION SECTION --- */}
       <section className="w-full max-w-3xl mx-auto my-12 px-4">
         <div className="bg-white/80 backdrop-blur rounded-2xl shadow-lg p-8 flex flex-col items-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#c72450] mb-4 tracking-tight flex items-center gap-2">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#ce160e] mb-4 tracking-tight flex items-center gap-2">
             <svg
-              className="w-7 h-7 text-[#c72450]"
+              className="w-7 h-7 text-[#ce160e]"
               fill="none"
               stroke="currentColor"
               strokeWidth={2}
@@ -153,7 +153,7 @@ export default function Home() {
             href="https://maps.google.com/?q=11+Pułku+Piechoty+20a,+78-500+Drawsko+Pomorskie"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block mb-4 mt-2 px-5 py-2 bg-[#c72450] text-white rounded-full font-medium hover:bg-[#b21e40] transition"
+            className="inline-block mb-4 mt-2 px-5 py-2 bg-[#ce160e] text-white rounded-full font-medium hover:bg-[#b21e40] transition"
           >
             Zobacz na mapie
           </a>
@@ -182,7 +182,7 @@ export default function Home() {
 
       {/* --- CONTACT SECTION --- */}
       <section className="w-full max-w-4xl mx-auto mb-16 px-8 text-center">
-        <h2 className="text-2xl font-bold mb-2 text-[#c72450]">Kontakt</h2>
+        <h2 className="text-2xl font-bold mb-2 text-[#ce160e]">Kontakt</h2>
         <p className="mb-2">
           📱 Telefon:{" "}
           <a href="tel:+48123123123" className="text-blue-700 font-semibold">
