@@ -49,12 +49,15 @@ export default function Home() {
       </div>
 
       <header
-        className={`relative flex items-center justify-center bg-slate-900 ${style.header} ${style.background}`}
+        className={`relative flex items-center justify-center bg-neutral-900 ${style.header} ${style.background}`}
       >
         <div className="flex flex-col items-center justify-center">
-          <h1 className={`${style.papispartsTitle} font-bold mx-6`}>
+          <h1 className={`${style.papispartsTitle} font-bold mx-6 uppercase`}>
             Bez przerwy w drodze
           </h1>
+          <h2 className="text-neutral-300">
+            Doradzimy, dobierzemy, zamowimy.
+          </h2>
 
           <ul className="ml-12 mr-10">
             {bgimgs.map((img, index) => {
@@ -84,6 +87,7 @@ export default function Home() {
           animate={{ opacity: 0.5, x: 0 }}
           transition={{ duration: 1, type: "spring", stiffness: 100 }}
         />
+        <div className={style.headerRedOverlay}></div>
       </header>
 
       <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-3 lg:text-left mt-12">
