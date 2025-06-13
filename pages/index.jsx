@@ -15,6 +15,14 @@ let bgimgs = [
     url: "https://images.unsplash.com/photo-1548184274-f1d3776448b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
   },
 ];
+function FeatureCard({ icon, text }) {
+  return (
+    <div className="flex items-center gap-3 bg-gray-100/70 rounded-xl px-4 py-3 shadow-sm hover:shadow-md transition-all">
+      <span className="text-2xl">{icon}</span>
+      <span className="font-medium text-gray-700">{text}</span>
+    </div>
+  );
+}
 
 export default function Home() {
   let [imgIndex, setImgIndex] = useState(0);
@@ -55,7 +63,7 @@ export default function Home() {
           <h1 className={`${style.papispartsTitle} font-bold mx-6 uppercase`}>
             Bez przerwy w drodze
           </h1>
-          <h2 className="text-neutral-300">
+          <h2 className={`text-neutral-300 text-center w-full mt-2`}>
             Doradzimy, dobierzemy, zamowimy.
           </h2>
 
@@ -89,11 +97,114 @@ export default function Home() {
         />
         <div className={style.headerRedOverlay}></div>
       </header>
+      {/* --- WHY US SECTION --- */}
+      <section className="w-full max-w-3xl mx-auto mt-20 mb-12 px-4">
+        <div className="bg-white/80 backdrop-blur rounded-2xl shadow-lg p-8 flex flex-col items-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#c72450] mb-4 tracking-tight">
+            Dlaczego właśnie my?
+          </h2>
+          <p className="mb-6 text-base sm:text-lg text-gray-800 text-center max-w-xl">
+            Papis Parts to{" "}
+            <span className="font-semibold text-[#c72450]">
+              lata doświadczenia
+            </span>
+            , szybka obsługa i najlepsze ceny na rynku. Dobieramy części do
+            każdego auta, doradzamy, zamawiamy i zawsze jesteśmy pod telefonem.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+            <FeatureCard icon="🚗" text="Ekspresowa wycena" />
+            <FeatureCard icon="🤝" text="Indywidualne podejście" />
+            <FeatureCard icon="🔧" text="Oryginalne i zamienne części" />
+            <FeatureCard icon="📦" text="Odbiór osobisty i wysyłka" />
+          </div>
+        </div>
+      </section>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-3 lg:text-left mt-12">
+      {/* --- LOCATION SECTION --- */}
+      <section className="w-full max-w-3xl mx-auto my-12 px-4">
+        <div className="bg-white/80 backdrop-blur rounded-2xl shadow-lg p-8 flex flex-col items-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#c72450] mb-4 tracking-tight flex items-center gap-2">
+            <svg
+              className="w-7 h-7 text-[#c72450]"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 21c-.32 0-.62-.15-.81-.41C10.51 19.06 7 14.24 7 10a5 5 0 0 1 10 0c0 4.24-3.51 9.06-4.19 9.59-.19.26-.49.41-.81.41ZM12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+              />
+            </svg>
+            Lokalizacja
+          </h2>
+          <p className="mb-2 text-gray-800 flex items-center gap-2 text-lg">
+            <svg
+              className="w-5 h-5 text-gray-700"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 0 0 .95.69h4.914c.969 0 1.371 1.24.588 1.81l-3.978 2.89a1 1 0 0 0-.364 1.118l1.518 4.674c.3.921-.755 1.688-1.539 1.118l-3.978-2.89a1 1 0 0 0-1.175 0l-3.978 2.89c-.783.57-1.838-.197-1.539-1.118l1.519-4.674a1 1 0 0 0-.364-1.118l-3.978-2.89c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 0 0 .95-.69l1.519-4.674Z" />
+            </svg>
+            11 Pułku Piechoty 20a, 78-500 Drawsko Pomorskie
+          </p>
+          <a
+            href="https://maps.google.com/?q=11+Pułku+Piechoty+20a,+78-500+Drawsko+Pomorskie"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mb-4 mt-2 px-5 py-2 bg-[#c72450] text-white rounded-full font-medium hover:bg-[#b21e40] transition"
+          >
+            Zobacz na mapie
+          </a>
+          <div className="w-full flex justify-center mb-4">
+            <div
+              className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 w-full"
+              style={{ maxWidth: 420, minHeight: 260 }}
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2298.2209148758677!2d15.81248121606998!3d53.53288205088895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4700e3ec24f5c9e1%3A0xc23e4dc3328b1b0b!2s11%20Pu%C5%82ku%20Piechoty%2020A%2C%2078-500%20Drawsko%20Pomorskie!5e0!3m2!1spl!2spl!4v1718302670227!5m2!1spl!2spl"
+                width="100%"
+                height="260"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Mapa Papis Parts"
+              ></iframe>
+            </div>
+          </div>
+          <p className="text-sm text-gray-600">
+            Parking dostępny pod lokalem. Zapraszamy!
+          </p>
+        </div>
+      </section>
 
-      </div>
-      <div style={{ height: "120px" }} />
+      {/* --- CONTACT SECTION --- */}
+      <section className="w-full max-w-4xl mx-auto mb-16 px-8 text-center">
+        <h2 className="text-2xl font-bold mb-2 text-[#c72450]">Kontakt</h2>
+        <p className="mb-2">
+          📱 Telefon:{" "}
+          <a href="tel:+48123123123" className="text-blue-700 font-semibold">
+            123 123 123
+          </a>
+        </p>
+        <p className="mb-2">
+          ✉️ Email:{" "}
+          <a
+            href="mailto:kontakt@papisparts.pl"
+            className="text-blue-700 font-semibold"
+          >
+            kontakt@papisparts.pl
+          </a>
+        </p>
+        <p className="mb-2">
+          🕒 Godziny otwarcia: <b>8:00–18:00 (Pon–Sob)</b>
+        </p>
+        <div className="flex justify-center mt-4">
+          {/* WhatsAppButton if you want it big here */}
+        </div>
+      </section>
     </main>
   );
 }

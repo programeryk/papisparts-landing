@@ -22,14 +22,13 @@
 }
 
 .headerRedOverlay {
-  content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  z-index: -1; /* just above the image, below the rest */
+  z-index: -1; /* above bg image, below content */
   background: linear-gradient(
     110deg, 
-    rgba(180, 18, 55, 0.20) 0%,   /* nice deep red, 20% opacity */
-    rgba(200, 40, 80, 0.08) 100%
+    rgba(180, 18, 55, 0.21) 0%,
+    rgba(200, 40, 80, 0.09) 100%
   );
   pointer-events: none;
 }
