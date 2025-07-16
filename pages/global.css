@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -19,11 +21,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(to bottom,
-      transparent,
-      #fbfeff) #e7eaeb;
-  color: #0c0c0c;
-   font-weight: 900;
+  font-weight: 900;
 }
 
 li a:hover {
