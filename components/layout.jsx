@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Footer from "./Footer";
 import WhatsappButton from "./WhatsappButton";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 // export const metadata = {
@@ -33,6 +34,31 @@ export default function RootLayout({ children }) {
 
   return (
     <>
+      <Head>
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        {/* Optional classic support: */}
+        <link rel="icon" href="/favicon.ico" />
+        {/* Optional for iOS: */}
+        <link rel="apple-touch-icon" href="/favicon.png" />
+        {/* (You can also add your OG/Twitter meta tags here later) */}
+        <meta property="og:title" content="Papis Parts – części samochodowe" />
+        <meta
+          property="og:description"
+          content="Doradzimy, dobierzemy, zamówimy. Bez przerwy w drodze!"
+        />
+        <meta property="og:image" content="/og.png" />
+        <meta property="og:url" content="https://papisparts.com" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Papis Parts – części samochodowe" />
+        <meta
+          name="twitter:description"
+          content="Doradzimy, dobierzemy, zamówimy. Bez przerwy w drodze!"
+        />
+        <meta name="twitter:image" content="/og.png" />
+      </Head>
       <motion.div
         className={`${style.nav} ${
           router.pathname === "/" && !isMenuOpen ? style.navHidden : ""
