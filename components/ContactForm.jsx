@@ -3,14 +3,16 @@ import emailjs from "emailjs-com";
 
 export default function ContactForm() {
   const [fields, setFields] = useState({
-    name: "",
     email: "",
-    title: "",      // Subject/title for auto-reply
+    title: "", // Subject/title for auto-reply
     message: "",
   });
   const [error, setError] = useState("");
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+  const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+  const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
   function handleChange(e) {
     setFields({ ...fields, [e.target.name]: e.target.value });
@@ -26,14 +28,14 @@ export default function ContactForm() {
     setLoading(true);
     try {
       await emailjs.send(
-        "", //service id
-        "template_1fcg4ck", //template id
+        SERVICE_ID,
+        TEMPLATE_ID, //template id
         {
           email: fields.email,
           title: fields.title,
           message: fields.message,
         },
-        "YOUR_PUBLIC_KEY" //public key
+        PUBLIC_KEY //public key
       );
       setSent(true);
       setFields({ email: "", title: "", message: "" });
