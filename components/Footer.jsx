@@ -9,17 +9,6 @@ export default function Footer() {
           <span className="text-sm">
             © {year} Papis Parts • Twoja droga do niezawodności
           </span>
-          <div className="flex gap-4">
-            <a
-              href="/privacy"
-              className="hover:text-[#ce160e] underline text-xs"
-            >
-              Polityka prywatności
-            </a>
-            <a href="/terms" className="hover:text-[#ce160e] underline text-xs">
-              Regulamin
-            </a>
-          </div>
         </div>
         <div className="flex gap-3 mt-2 md:mt-0">
           <a href="mailto:papisparts@gmail.com" aria-label="Email">

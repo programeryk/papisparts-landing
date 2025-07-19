@@ -9,7 +9,7 @@ export default function ContactSection() {
         <div className="w-full md:w-1/2 flex flex-col items-center md:items-start gap-5">
           {/* Image on top */}
           <img
-            src="https://i.imgur.com/ZI9nrA1.jpeg"
+            src="https://i.imgur.com/ttqtiQc.jpeg"
             alt="Telefon kontaktowy"
             className="rounded-xl shadow-sm object-cover h-52 w-full max-w-xs"
             style={{ background: "#f6f6f6" }}
