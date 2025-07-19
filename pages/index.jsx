@@ -6,6 +6,7 @@ import LocationSection from "../components/LocationSection";
 import WhyUsSection from "../components/WhyUsSection";
 import ContactSection from "../components/ContactSection";
 import ReviewsSection from "../components/ReviewsSection";
+import { useSwipeable } from "react-swipeable";
 
 let bgimgs = [
   {
@@ -21,6 +22,14 @@ let bgimgs = [
 
 export default function Home() {
   let [imgIndex, setImgIndex] = useState(0);
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () =>
+      setImgIndex((prev) => (prev + 1 >= bgimgs.length ? 0 : prev + 1)),
+    onSwipedRight: () =>
+      setImgIndex((prev) => (prev - 1 < 0 ? bgimgs.length - 1 : prev - 1)),
+    trackMouse: true, // makes mouse dragging on desktop work too
+  });
 
   function changeImage(e) {
     const index = bgimgs.findIndex((img) => img.url === e.target.dataset.url);
@@ -52,6 +61,7 @@ export default function Home() {
       </div>
 
       <header
+        {...handlers}
         className={`relative flex flex-col items-center justify-between w-full overflow-hidden ${style.header} ${style.background}`}
         style={{
           minHeight: "480px",
