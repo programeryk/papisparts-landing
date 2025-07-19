@@ -13,7 +13,6 @@
   justify-content: center; /* <--- changed */
   align-items: center; /* <--- add this for vertical centering */
   background-color: #f1f4f6;
-  transition: opacity 0.1s ease 0s;
   padding: 6px 0 6px 0; /* <--- less vertical and horizontal space */
   z-index: 1000;
   width: 100%;

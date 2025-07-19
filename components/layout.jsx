@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
 
   useEffect(() => {
     const toggleMenu = () => {
-      if (window.scrollY > 92) {
+      if (window.scrollY > 95) {
         setIsMenuOpen(true);
       } else {
         setIsMenuOpen(false);

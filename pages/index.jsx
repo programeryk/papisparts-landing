@@ -5,6 +5,7 @@ import Image from "next/image";
 import LocationSection from "../components/LocationSection";
 import WhyUsSection from "../components/WhyUsSection";
 import ContactSection from "../components/ContactSection";
+import ReviewsSection from "../components/ReviewsSection";
 
 let bgimgs = [
   {
@@ -74,7 +75,7 @@ export default function Home() {
           <ul className="flex flex-row gap-4">
             {bgimgs.map((img, index) => (
               <motion.button
-                className="rounded-full w-3 h-3 border border-white bg-white"
+                className="rounded-full w-2 h-2 border border-white bg-white"
                 style={{
                   backgroundColor:
                     img.url === bgimgs[imgIndex].url ? "#ce160e" : "white",
@@ -120,10 +121,10 @@ export default function Home() {
         Powiedz nam czego potrzebujesz, a my zajmiemy się resztą.
       </div>
 
-
       <ContactSection />
       <WhyUsSection />
       <LocationSection />
+      <ReviewsSection />
     </main>
   );
 }
