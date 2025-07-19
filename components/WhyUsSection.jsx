@@ -4,6 +4,15 @@ export default function WhyUsSection() {
       <h2 className="text-3xl text-gray-900 text-center mb-12 tracking-tight font-extrabold">
         Dlaczego właśnie my?
       </h2>
+      <p className="text-base text-gray-700 text-center max-w-2xl mx-auto mb-10 font-medium">
+        <span className="font-bold">Jakie mamy części?</span>
+        Prowadzimy sprzedaż części samochodowych do większości marek: filtry,
+        klocki i tarcze hamulcowe, oleje silnikowe, płyny eksploatacyjne,
+        żarówki, elementy zawieszenia, rozrządy, akumulatory i wiele więcej.
+        Oferujemy części oryginalne i zamienniki najwyższej jakości – do
+        samochodów m.in. BMW, Audi, Volkswagen, Toyota. Sklep motoryzacyjny,
+        odbiór osobisty w Drawsku Pomorskim.
+      </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {[
           {
@@ -34,7 +43,7 @@ export default function WhyUsSection() {
           },
           {
             title: "Indywidualne podejście",
-            desc: "Dobieramy części pod Twoje potrzeby, nie wciskamy gotowców.",
+            desc: "Dobieramy części samochodowe pod Twoje potrzeby, nie wciskamy gotowców.",
             icon: (
               <svg
                 className="w-8 h-8 text-[#ce160e]"

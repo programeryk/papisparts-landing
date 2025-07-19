@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.papisparts.com
+
+# Sitemaps
+Sitemap: https://www.papisparts.com/sitemap.xml

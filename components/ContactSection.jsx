@@ -53,7 +53,7 @@ export default function ContactSection() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M2.05 7.1a16.88 16.88 0 0 0 14.85 14.85l2.2-2.2a2 2 0 0 0 .5-2.07l-1.05-3.18a2 2 0 0 0-1.92-1.38h-2.02a1 1 0 0 1-.96-.7l-.38-1.15a1 1 0 0 1 .22-.98l2.31-2.31a1 1 0 0 0 .22-.98l-1.05-3.18A2 2 0 0 0 14.54 3l-3.18-1.05a2 2 0 0 0-2.07.5l-2.2 2.2Z"
+                  d="M22 16.92v3a2 2 0 01-2.18 2A19.8 19.8 0 013 5.18 2 2 0 015 3h3a2 2 0 012 1.72c.13 1.05.38 2.06.73 3a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006.6 6.6l1.27-1.27a2 2 0 012.11-.45c.94.35 1.95.6 3 .73A2 2 0 0122 16.92z"
                 />
               </svg>
               <a
@@ -64,8 +64,8 @@ export default function ContactSection() {
               </a>
             </p>
             <p className="text-base text-gray-600 mb-5">
-              Godziny pracy:{" "}
-              <span className="font-semibold text-gray-800">24/6</span>
+              Godziny pracy online:{" "}
+              <span className="font-semibold text-gray-800">24/7</span>
             </p>
             <a
               href="https://wa.me/48888399666"

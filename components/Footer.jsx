@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-4xl mx-auto flex flex-col items-center gap-4 text-center">
         <div className="flex flex-col md:flex-row items-center gap-4">
           <span className="text-sm">
-            © {year} Papis Parts • Twoja droga do niezawodności
+            © {year} PapisParts • Twoja droga do niezawodności
           </span>
         </div>
         <div className="flex gap-3 mt-2 md:mt-0">

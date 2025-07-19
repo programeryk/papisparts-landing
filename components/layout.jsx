@@ -35,29 +35,37 @@ export default function RootLayout({ children }) {
   return (
     <>
       <Head>
+        <title>Papis Parts Drawko Pomorskie – Części Samochodowe</title>
+        <meta
+          name="description"
+          content="Najlepsze części samochodowe w Drawsku Pomorskim. Doradzamy, dostarczamy, zamieniamy. Sklep Papis Parts."
+        />
         <link rel="icon" type="image/png" href="/favicon.png" />
-        {/* Optional classic support: */}
-        <link rel="icon" href="/favicon.ico" />
-        {/* Optional for iOS: */}
-        <link rel="apple-touch-icon" href="/favicon.png" />
-        {/* (You can also add your OG/Twitter meta tags here later) */}
-        <meta property="og:title" content="Papis Parts – części samochodowe" />
         <meta
           property="og:description"
           content="Doradzimy, dobierzemy, zamówimy. Bez przerwy w drodze!"
+        />
+        <meta
+          property="og:title"
+          content="Papis Parts – części samochodowe Drawsko Pomorskie"
         />
         <meta property="og:image" content="/og.png" />
         <meta property="og:url" content="https://papisparts.com" />
         <meta property="og:type" content="website" />
 
-        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Papis Parts – części samochodowe" />
+        <meta
+          name="twitter:title"
+          content="Papis Parts – części samochodowe Drawsko Pomorskie"
+        />
         <meta
           name="twitter:description"
           content="Doradzimy, dobierzemy, zamówimy. Bez przerwy w drodze!"
         />
         <meta name="twitter:image" content="/og.png" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+        <link rel="canonical" href="https://www.papisparts.com/" />
       </Head>
       <motion.div
         className={`${style.nav} ${
