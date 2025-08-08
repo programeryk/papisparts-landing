@@ -126,7 +126,7 @@ export default function ReviewsSection() {
               G
             </text>
           </svg>
-          4.6 / 5.0 na podstawie 10 opinii Google
+          4.7 / 5.0 na podstawie 15 opinii Google
         </span>
       </motion.div>
     </section>
