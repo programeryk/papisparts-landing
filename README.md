@@ -1,34 +1,97 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Papis Parts 🚗
 
-## Getting Started
+*Professional car parts website for Drawsko Pomorskie - your road to reliability*
 
-First, run the development server:
+![Papis Parts Preview](https://www.papisparts.com/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## ✨ Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🎨 **Modern Design** - Clean, responsive layout with smooth animations
+- 📱 **Mobile-First** - Optimized for all devices with touch-friendly interactions
+- 🖼️ **Image Carousel** - Auto-rotating hero section with swipe controls
+- 📧 **Contact Form** - Integrated EmailJS for seamless customer communication
+- 📍 **Interactive Map** - Google Maps integration with location details
+- ⭐ **Customer Reviews** - Social proof with Google ratings display
+- 💬 **WhatsApp Integration** - Direct messaging for instant customer support
+- 🎯 **SEO Optimized** - Meta tags, structured data, and performance focused
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🚀 Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/papisparts.git
+   cd papisparts
+   ```
 
-## Learn More
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Set up environment variables**
+   ```bash
+   # Create .env.local file
+   NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+   NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+   NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+5. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000) to see the website.
 
-## Deploy on Vercel
+## 📖 Usage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The website is a single-page application showcasing car parts and services:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Hero Section** - Auto-rotating carousel with call-to-action
+- **Contact Form** - Customer inquiry system with EmailJS integration
+- **Services Overview** - Interactive service cards with animations
+- **Location Map** - Google Maps integration for business location
+- **Customer Reviews** - Social proof section with ratings
+
+## 🛠️ Tech Stack
+
+- **Framework** - [Next.js 13](https://nextjs.org/) with React 18
+- **Styling** - [Tailwind CSS](https://tailwindcss.com/) for responsive design
+- **Animations** - [Framer Motion](https://www.framer.com/motion/) for smooth interactions
+- **Email Service** - [EmailJS](https://www.emailjs.com/) for contact form
+- **Maps** - [Google Maps Embed](https://developers.google.com/maps/documentation/embed) API
+- **Deployment** - [Vercel](https://vercel.com/) for hosting
+- **SEO** - [Next-Sitemap](https://github.com/iamvishnusankar/next-sitemap) for search optimization
+
+## 🤝 Contributing
+
+We welcome contributions! Whether it's:
+
+- 🐛 Bug fixes
+- ✨ New features
+- 📝 Documentation improvements
+- 🎨 Design enhancements
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## ⭐ Call to Action
+
+If this project helps you or your business, please consider:
+
+- ⭐ **Starring** this repository
+- 🔄 **Sharing** with your network
+- 💬 **Providing feedback** through issues
+- 🚀 **Deploying** your own version
+
+---
+
+*Built with ❤️ for the automotive community in Drawsko Pomorskie*
