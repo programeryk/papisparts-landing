@@ -1,18 +1,28 @@
+import { motion } from "framer-motion";
+
 export default function WhyUsSection() {
   return (
     <section className="w-full max-w-5xl mx-auto mb-20 px-4">
-      <h2 className="text-3xl text-gray-900 text-center mb-12 tracking-tight font-extrabold">
-        Dlaczego właśnie my?
-      </h2>
-      <p className="text-base text-gray-700 text-center max-w-2xl mx-auto mb-10 font-medium">
-        <span className="font-bold">Jakie mamy części?</span>
-        Prowadzimy sprzedaż części samochodowych do większości marek: filtry,
-        klocki i tarcze hamulcowe, oleje silnikowe, płyny eksploatacyjne,
-        żarówki, elementy zawieszenia, rozrządy, akumulatory i wiele więcej.
-        Oferujemy części oryginalne i zamienniki najwyższej jakości – do
-        samochodów m.in. BMW, Audi, Volkswagen, Toyota. Sklep motoryzacyjny,
-        odbiór osobisty w Drawsku Pomorskim.
-      </p>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-center mb-12"
+      >
+        <h2 className="text-3xl text-gray-900 text-center mb-12 tracking-tight font-extrabold">
+          Dlaczego właśnie my?
+        </h2>
+        <p className="text-base text-gray-700 text-center max-w-2xl mx-auto mb-10 font-medium">
+          <span className="font-bold">Jakie mamy części? </span>
+          Prowadzimy sprzedaż części samochodowych do większości marek: filtry,
+          klocki i tarcze hamulcowe, oleje silnikowe, płyny eksploatacyjne,
+          żarówki, elementy zawieszenia, rozrządy, akumulatory i wiele więcej.
+          Oferujemy części oryginalne i zamienniki najwyższej jakości – do
+          samochodów m.in. BMW, Audi, Volkswagen, Toyota. Sklep motoryzacyjny,
+          odbiór osobisty w Drawsku Pomorskim.
+        </p>
+      </motion.div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {[
           {
@@ -93,8 +103,12 @@ export default function WhyUsSection() {
             ),
           },
         ].map(({ title, desc, icon }, i) => (
-          <div
+          <motion.div
             key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: i * 0.1 }}
+            viewport={{ once: true }}
             className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center text-center transition transform hover:scale-105 hover:shadow-xl group"
           >
             <div className="mb-3 transition-transform group-hover:scale-110">
@@ -104,7 +118,7 @@ export default function WhyUsSection() {
               {title}
             </h3>
             <p className="text-gray-600 text-sm font-medium">{desc}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

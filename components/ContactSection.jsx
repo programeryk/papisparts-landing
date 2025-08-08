@@ -1,12 +1,33 @@
 import ContactForm from "./ContactForm";
+import { motion } from "framer-motion";
 
 export default function ContactSection() {
   return (
     <section className="w-full max-w-4xl mx-auto mb-24 px-4 mt-24">
-      <h2 className="text-3xl text-gray-900 text-center mb-6">Kontakt</h2>
-      <div className="flex flex-col md:flex-row items-center gap-10">
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-3xl text-gray-900 text-center mb-6"
+      >
+        Kontakt
+      </motion.h2>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="flex flex-col md:flex-row items-center gap-10"
+      >
         {/* --- LEFT: Image + Info, Stacked --- */}
-        <div className="w-full md:w-1/2 flex flex-col items-center md:items-start gap-5">
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="w-full md:w-1/2 flex flex-col items-center md:items-start gap-5"
+        >
           {/* Image on top */}
           <img
             src="https://i.imgur.com/ttqtiQc.jpeg"
@@ -76,12 +97,18 @@ export default function ContactSection() {
               Napisz na WhatsApp
             </a>
           </div>
-        </div>
+        </motion.div>
         {/* --- RIGHT: FORM --- */}
-        <div className="w-full md:w-1/2 flex justify-center">
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="w-full md:w-1/2 flex justify-center"
+        >
           <ContactForm />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

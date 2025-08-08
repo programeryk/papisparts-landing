@@ -1,12 +1,32 @@
+import { motion } from "framer-motion";
+
 export default function ReviewsSection() {
   return (
     <section className="w-full max-w-3xl mx-auto mb-20 px-4">
-      <h2 className="text-2xl text-gray-900 text-center mb-6 font-extrabold">
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-2xl text-gray-900 text-center mb-6 font-extrabold"
+      >
         Co mówią o nas klienci?
-      </h2>
-      <div className="flex flex-col md:flex-row items-stretch justify-center gap-6">
+      </motion.h2>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="flex flex-col md:flex-row items-stretch justify-center gap-6"
+      >
         {/* Arkadiusz T. */}
-        <div className="bg-white rounded-xl shadow p-6 flex flex-col items-center text-center w-full md:w-1/3 min-h-[220px]">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="bg-white rounded-xl shadow p-6 flex flex-col items-center text-center w-full md:w-1/3 min-h-[220px]"
+        >
           <div className="flex items-center mb-2">
             <span className="w-10 h-10 rounded-full bg-[#ce160e] flex items-center justify-center text-white font-bold text-lg mr-2">
               A
@@ -28,10 +48,16 @@ export default function ReviewsSection() {
           <p className="text-gray-700 text-base font-medium">
             Polecam sklep i warsztat, szybka i profesjonalna obsługa!
           </p>
-        </div>
+        </motion.div>
 
         {/* Paulina Cichon */}
-        <div className="bg-white rounded-xl shadow p-6 flex flex-col items-center text-center w-full md:w-1/3 min-h-[220px]">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="bg-white rounded-xl shadow p-6 flex flex-col items-center text-center w-full md:w-1/3 min-h-[220px]"
+        >
           <div className="flex items-center mb-2">
             <span className="w-10 h-10 rounded-full bg-[#dfb3a6] flex items-center justify-center text-white font-bold text-lg mr-2">
               P
@@ -51,10 +77,16 @@ export default function ReviewsSection() {
             ))}
           </div>
           <p className="text-gray-700 text-base font-medium">Polecam!</p>
-        </div>
+        </motion.div>
 
         {/* Tomasz Wachoński */}
-        <div className="bg-white rounded-xl shadow p-6 flex flex-col items-center text-center w-full md:w-1/3 min-h-[220px]">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="bg-white rounded-xl shadow p-6 flex flex-col items-center text-center w-full md:w-1/3 min-h-[220px]"
+        >
           <div className="flex items-center mb-2">
             <span className="w-10 h-10 rounded-full bg-[#b7b7b7] flex items-center justify-center text-white font-bold text-lg mr-2">
               P
@@ -74,9 +106,15 @@ export default function ReviewsSection() {
             ))}
           </div>
           <p className="text-gray-700 text-base font-medium">Polecam.</p>
-        </div>
-      </div>
-      <div className="mt-4 text-center text-xs text-gray-500">
+        </motion.div>
+      </motion.div>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.6 }}
+        viewport={{ once: true }}
+        className="mt-4 text-center text-xs text-gray-500"
+      >
         <span className="inline-flex items-center gap-1">
           <svg
             className="w-5 h-5 text-[#4285f4]"
@@ -90,7 +128,7 @@ export default function ReviewsSection() {
           </svg>
           4.6 / 5.0 na podstawie 10 opinii Google
         </span>
-      </div>
+      </motion.div>
     </section>
   );
 }

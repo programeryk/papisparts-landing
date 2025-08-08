@@ -6,17 +6,22 @@ import LocationSection from "../components/LocationSection";
 import WhyUsSection from "../components/WhyUsSection";
 import ContactSection from "../components/ContactSection";
 import ReviewsSection from "../components/ReviewsSection";
+import CTASection from "../components/CTASection";
+import ServicesSection from "../components/ServicesSection";
 import { useSwipeable } from "react-swipeable";
 
 let bgimgs = [
   {
     url: "https://i.imgur.com/0PWRQcT.jpeg",
+    alt: "Części samochodowe - profesjonalny serwis",
   },
   {
     url: "https://i.imgur.com/xrJfwL5.jpeg",
+    alt: "Warsztat samochodowy Papis Parts",
   },
   {
     url: "https://i.imgur.com/2o7sdAl.jpeg",
+    alt: "Sklep z częściami samochodowymi",
   },
 ];
 
@@ -29,6 +34,9 @@ export default function Home() {
     onSwipedRight: () =>
       setImgIndex((prev) => (prev - 1 < 0 ? bgimgs.length - 1 : prev - 1)),
     trackMouse: true, // makes mouse dragging on desktop work too
+    preventDefaultTouchmoveEvent: true,
+    delta: 10,
+    swipeDuration: 500,
   });
 
   function changeImage(e) {
@@ -42,7 +50,7 @@ export default function Home() {
     }, 5000);
 
     return () => clearInterval(intervalId);
-  }, [imgIndex]); // <-- dependency on imgIndex!
+  }, []); // Removed imgIndex dependency to prevent unnecessary re-renders
 
   return (
     <main
@@ -52,7 +60,7 @@ export default function Home() {
       <div className="w-full flex justify-center items-center pt-8 mb-4">
         <Image
           src="/logoblank.png"
-          alt="Papis Parts logo"
+          alt="Papis Parts logo - części samochodowe Drawsko Pomorskie"
           width={210}
           height={60}
           priority
@@ -71,21 +79,36 @@ export default function Home() {
         }}
       >
         {/* --- Headline + Subheadline AT THE TOP --- */}
-        <div className="w-full absolute top-36 flex flex-col items-center pt-12 z-20">
-          <h1 className="text-white text-5xl sm:text-8xl tracking-tight uppercase text-center mb-2">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full absolute top-36 flex flex-col items-center pt-12 z-20"
+        >
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-white text-5xl sm:text-8xl tracking-tight uppercase text-center mb-2"
+          >
             Bez przerwy w drodze
-          </h1>
-          <h2 className="text-white text-base sm:text-xl tracking-normal font-semibold text-center mb-0">
+          </motion.h1>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-white text-base sm:text-xl tracking-normal font-semibold text-center mb-0"
+          >
             Doradzimy, dobierzemy, zamówimy.
-          </h2>
-        </div>
+          </motion.h2>
+        </motion.div>
 
         {/* --- Carousel Dots at the BOTTOM --- */}
         <div className="w-full absolute bottom-0 flex flex-row justify-center mb-10 z-20">
-          <ul className="flex flex-row gap-4">
+          <ul className="flex flex-row gap-4" role="tablist" aria-label="Galeria zdjęć">
             {bgimgs.map((img, index) => (
               <motion.button
-                className="rounded-full w-2 h-2 border border-white bg-white"
+                className="rounded-full w-2 h-2 border border-white bg-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black"
                 style={{
                   backgroundColor:
                     img.url === bgimgs[imgIndex].url ? "#ce160e" : "white",
@@ -102,6 +125,8 @@ export default function Home() {
                 data-url={img.url}
                 key={img.url}
                 aria-label={`Wybierz zdjęcie ${index + 1}`}
+                aria-selected={img.url === bgimgs[imgIndex].url}
+                role="tab"
                 tabIndex={0}
               />
             ))}
@@ -114,13 +139,14 @@ export default function Home() {
         {/* --- BG Image --- */}
         <motion.img
           src={bgimgs[imgIndex].url}
-          alt="header image"
+          alt={bgimgs[imgIndex].alt}
           key={bgimgs[imgIndex].url}
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.2, type: "tween", stiffness: 100 }}
           className="absolute inset-0 w-full h-full object-cover z-0"
           draggable={false}
+          loading="eager"
         />
       </header>
 
@@ -132,9 +158,11 @@ export default function Home() {
       </div>
 
       <ContactSection />
+      <ServicesSection />
       <WhyUsSection />
       <LocationSection />
       <ReviewsSection />
+      <CTASection />
     </main>
   );
 }

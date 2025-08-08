@@ -1,11 +1,32 @@
 // components/LocationSection.jsx
+import { motion } from "framer-motion";
 
 export default function LocationSection() {
   return (
     <section className="w-full max-w-4xl mx-auto mb-20 px-4">
-      <h2 className="text-3xl text-gray-900 text-center mb-6">Lokalizacja</h2>
-      <div className="flex flex-col md:flex-row items-center md:items-start gap-10">
-        <div className="flex-1 min-w-[280px]">
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-3xl text-gray-900 text-center mb-6"
+      >
+        Lokalizacja
+      </motion.h2>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="flex flex-col md:flex-row items-center md:items-start gap-10"
+      >
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="flex-1 min-w-[280px]"
+        >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2298.2209148758677!2d15.81248121606998!3d53.53288205088895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4700e3ec24f5c9e1%3A0xc23e4dc3328b1b0b!2s11%20Pu%C5%82ku%20Piechoty%2020A%2C%2078-500%20Drawsko%20Pomorskie!5e0!3m2!1spl!2spl!4v1718302670227!5m2!1spl!2spl"
             width="100%"
@@ -17,8 +38,14 @@ export default function LocationSection() {
             referrerPolicy="no-referrer-when-downgrade"
             title="Mapa Papis Parts"
           ></iframe>
-        </div>
-        <div className="flex-1 flex flex-col justify-center items-center md:items-start">
+        </motion.div>
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="flex-1 flex flex-col justify-center items-center md:items-start"
+        >
           <div className="text-lg font-medium text-gray-900 mb-2 flex items-center gap-2">
             <svg
               className="w-6 h-6 text-[#ce160e]"
@@ -49,8 +76,8 @@ export default function LocationSection() {
             Godziny otwarcia:{" "}
             <span className="font-semibold text-gray-700">8:00–17:00</span>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

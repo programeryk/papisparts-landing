@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Footer from "./Footer";
 import WhatsappButton from "./WhatsappButton";
+import ScrollToTop from "./ScrollToTop";
 import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -87,6 +88,7 @@ export default function RootLayout({ children }) {
       <main className={inter.className}>{children}</main>
       <Footer />
       <WhatsappButton />
+      <ScrollToTop />
     </>
   );
 }
