@@ -1,97 +1,56 @@
-# Papis Parts 🚗
+# PapisParts — Landing Page
 
-*Professional car parts website for Drawsko Pomorskie - your road to reliability*
+A production landing page I built and maintain for a small automotive parts business (Drawsko Pomorskie, PL).
 
-![Papis Parts Preview](https://www.papisparts.com/)
+The goal was simple: clean UI, fast load, mobile-first layout, and a contact flow that actually converts (form + direct links).
 
-## ✨ Features
+![PapisParts preview](./public/preview.png)
 
-- 🎨 **Modern Design** - Clean, responsive layout with smooth animations
-- 📱 **Mobile-First** - Optimized for all devices with touch-friendly interactions
-- 🖼️ **Image Carousel** - Auto-rotating hero section with swipe controls
-- 📧 **Contact Form** - Integrated EmailJS for seamless customer communication
-- 📍 **Interactive Map** - Google Maps integration with location details
-- ⭐ **Customer Reviews** - Social proof with Google ratings display
-- 💬 **WhatsApp Integration** - Direct messaging for instant customer support
-- 🎯 **SEO Optimized** - Meta tags, structured data, and performance focused
+## What’s inside
 
-## 🚀 Installation
+- Responsive landing page (mobile-first)
+- Contact form (EmailJS)
+- Map section + contact details
+- Simple motion/animations (Framer Motion)
+- Basic SEO setup (metadata + sitemap)
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/papisparts.git
-   cd papisparts
-   ```
+## Tech
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+- Next.js
+- React
+- Tailwind CSS
+- Framer Motion
+- EmailJS
 
-3. **Set up environment variables**
-   ```bash
-   # Create .env.local file
-   NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
-   NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
-   NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
-   ```
+## Run locally
 
-4. **Run the development server**
-   ```bash
-   npm run dev
-   ```
+### 1) Install
+```bash
+npm install
+````
 
-5. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000) to see the website.
+### 2) Configure env
 
-## 📖 Usage
+Create `.env.local`:
 
-The website is a single-page application showcasing car parts and services:
+```env
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=...
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=...
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=...
+```
 
-- **Hero Section** - Auto-rotating carousel with call-to-action
-- **Contact Form** - Customer inquiry system with EmailJS integration
-- **Services Overview** - Interactive service cards with animations
-- **Location Map** - Google Maps integration for business location
-- **Customer Reviews** - Social proof section with ratings
+### 3) Start dev server
 
-## 🛠️ Tech Stack
+```bash
+npm run dev
+```
 
-- **Framework** - [Next.js 13](https://nextjs.org/) with React 18
-- **Styling** - [Tailwind CSS](https://tailwindcss.com/) for responsive design
-- **Animations** - [Framer Motion](https://www.framer.com/motion/) for smooth interactions
-- **Email Service** - [EmailJS](https://www.emailjs.com/) for contact form
-- **Maps** - [Google Maps Embed](https://developers.google.com/maps/documentation/embed) API
-- **Deployment** - [Vercel](https://vercel.com/) for hosting
-- **SEO** - [Next-Sitemap](https://github.com/iamvishnusankar/next-sitemap) for search optimization
+Open:
 
-## 🤝 Contributing
+* [http://localhost:3000](http://localhost:3000)
 
-We welcome contributions! Whether it's:
+## Notes
 
-- 🐛 Bug fixes
-- ✨ New features
-- 📝 Documentation improvements
-- 🎨 Design enhancements
+This repo is intentionally “boring”: it’s a real website, so I focused on readability, performance, and not overengineering it.
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## ⭐ Call to Action
-
-If this project helps you or your business, please consider:
-
-- ⭐ **Starring** this repository
-- 🔄 **Sharing** with your network
-- 💬 **Providing feedback** through issues
-- 🚀 **Deploying** your own version
-
----
-
-*Built with ❤️ for the automotive community in Drawsko Pomorskie*
+If you want to reuse it for your own site, swap content/assets and plug in your own EmailJS config.
