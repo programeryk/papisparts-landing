@@ -4,24 +4,20 @@ import { ArrowRight, Phone, Wrench } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { site } from "@/lib/site";
+import { format } from "@/i18n/format";
+import type { Messages } from "@/i18n/messages";
+import { site, whatsappLink } from "@/lib/site";
 import { ButtonLink } from "./button-link";
 import { WhatsAppIcon } from "./icons";
 
 const slides = [
-  {
-    src: "/images/hero-shop-interior.jpg",
-    alt: "Wnętrze sklepu Papis Parts – plakat Denso i zegar w kształcie koła",
-  },
-  {
-    src: "/images/hero-shop-shelves.jpg",
-    alt: "Półki z chemią samochodową i wycieraczkami w sklepie Papis Parts",
-  },
-  {
-    src: "/images/hero-parts-ready.jpg",
-    alt: "Części Bosch i Meyle przygotowane do odbioru",
-  },
-] as const;
+  { key: "interior", src: "/images/hero-shop-interior.jpg" },
+  { key: "shelves", src: "/images/hero-shop-shelves.jpg" },
+  { key: "partsReady", src: "/images/hero-parts-ready.jpg" },
+] as const satisfies readonly {
+  key: keyof Messages["hero"]["slides"];
+  src: string;
+}[];
 
 const AUTOPLAY_MS = 6000;
 const SWIPE_THRESHOLD_PX = 50;
@@ -32,7 +28,12 @@ const fadeUp = (delay: number) => ({
   transition: { duration: 0.8, delay },
 });
 
-export function Hero() {
+type HeroProps = {
+  m: Messages["hero"];
+  writeWhatsapp: string;
+};
+
+export function Hero({ m, writeWhatsapp }: HeroProps) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const reduceMotion = useReducedMotion();
@@ -52,8 +53,8 @@ export function Hero() {
   return (
     <section
       id="top"
-      aria-roledescription="karuzela"
-      aria-label="Papis Parts – sklep motoryzacyjny"
+      aria-roledescription={m.carousel}
+      aria-label={m.label}
       className="relative isolate flex h-[72svh] max-h-[760px] min-h-[620px] sm:min-h-[520px] touch-pan-y select-none items-center overflow-hidden bg-ink"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -75,7 +76,7 @@ export function Hero() {
         <Image
           key={slide.src}
           src={slide.src}
-          alt={i === index ? slide.alt : ""}
+          alt={i === index ? m.slides[slide.key] : ""}
           aria-hidden={i !== index}
           fill
           sizes="100vw"
@@ -94,19 +95,19 @@ export function Hero() {
           {...fadeUp(0.1)}
           className="mb-5 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] whitespace-nowrap backdrop-blur-sm sm:text-sm sm:tracking-[0.2em]"
         >
-          Sklep motoryzacyjny · {site.address.city}
+          {format(m.eyebrow, { city: site.address.city })}
         </motion.p>
         <motion.h1
           {...fadeUp(0.25)}
           className="font-display text-5xl font-black uppercase leading-[0.95] tracking-tight text-balance sm:text-7xl lg:text-8xl"
         >
-          Bez przerwy w drodze
+          {m.title}
         </motion.h1>
         <motion.p
           {...fadeUp(0.4)}
           className="mt-5 text-lg font-semibold text-white/90 sm:text-xl"
         >
-          Doradzimy, dobierzemy, zamówimy.
+          {m.subtitle}
         </motion.p>
         <motion.div
           {...fadeUp(0.55)}
@@ -118,17 +119,19 @@ export function Hero() {
             className="w-full sm:w-auto"
           >
             <Phone className="size-5" aria-hidden="true" />
-            Zadzwoń: {site.phone.display}
+            {format(m.call, {
+              phone: site.phone.display.replaceAll(" ", "\u00a0"),
+            })}
           </ButtonLink>
           <ButtonLink
-            href={site.whatsapp}
+            href={whatsappLink()}
             external
             variant="outline"
             size="lg"
             className="w-full sm:w-auto"
           >
             <WhatsAppIcon className="size-5" />
-            Napisz na WhatsApp
+            {writeWhatsapp}
           </ButtonLink>
         </motion.div>
         <motion.a
@@ -137,7 +140,7 @@ export function Hero() {
           className="group mt-7 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-left text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:text-base"
         >
           <Wrench className="size-4 shrink-0 text-brand" aria-hidden="true" />
-          Potrzebujesz mechanika? Polecimy sprawdzonych fachowców
+          {m.mechanicLink}
           <ArrowRight
             className="size-4 shrink-0 transition-transform group-hover:translate-x-1"
             aria-hidden="true"
@@ -151,7 +154,10 @@ export function Hero() {
             key={slide.src}
             type="button"
             onClick={() => show(i)}
-            aria-label={`Zdjęcie ${i + 1} z ${slides.length}`}
+            aria-label={format(m.slide, {
+              current: i + 1,
+              total: slides.length,
+            })}
             aria-current={i === index}
             className={`h-2.5 rounded-full transition-all duration-300 ${
               i === index ? "w-8 bg-brand" : "w-2.5 bg-white/60 hover:bg-white"

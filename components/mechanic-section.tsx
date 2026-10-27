@@ -1,16 +1,13 @@
 import { CircleCheck, Phone, Wrench } from "lucide-react";
-import { site } from "@/lib/site";
+import { getI18n } from "@/i18n/messages";
+import { site, whatsappLink } from "@/lib/site";
 import { ButtonLink } from "./button-link";
 import { WhatsAppIcon } from "./icons";
 import { Reveal } from "./reveal";
 
-const points = [
-  "Sprawdzeni mechanicy, z którymi współpracujemy",
-  "Części do naprawy dobierzemy i zamówimy u nas",
-  "Jeden telefon – resztą zajmiemy się my",
-] as const;
+export async function MechanicSection() {
+  const { m } = await getI18n();
 
-export function MechanicSection() {
   return (
     <section
       id="mechanik"
@@ -25,39 +22,37 @@ export function MechanicSection() {
         <Reveal>
           <span className="inline-flex items-center gap-2 rounded-full bg-brand px-4 py-1.5 text-xs font-bold tracking-[0.14em] uppercase">
             <Wrench className="size-4" aria-hidden="true" />
-            Mechanik
+            {m.mechanic.badge}
           </span>
           <h2
             id="mechanik-title"
             className="mt-5 font-display text-3xl font-extrabold tracking-tight sm:text-5xl"
           >
-            Potrzebujesz mechanika?
+            {m.mechanic.title}
           </h2>
           <p className="mt-5 max-w-xl text-lg text-white/80">
-            Nie zostawimy Cię z samymi częściami. Polecimy Ci najlepszych
-            mechaników, jakich znamy – sprawdzonych fachowców, którym sami
-            ufamy.
+            {m.mechanic.text}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href={site.phone.href} size="lg">
               <Phone className="size-5" aria-hidden="true" />
-              Zadzwoń i zapytaj
+              {m.mechanic.call}
             </ButtonLink>
             <ButtonLink
-              href={site.mechanicWhatsapp}
+              href={whatsappLink(m.mechanic.whatsappMessage)}
               external
               variant="outline"
               size="lg"
             >
               <WhatsAppIcon className="size-5" />
-              Napisz na WhatsApp
+              {m.common.writeWhatsapp}
             </ButtonLink>
           </div>
         </Reveal>
 
         <Reveal delay={0.15}>
           <ul className="flex flex-col gap-4 rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm sm:p-8">
-            {points.map((point) => (
+            {m.mechanic.points.map((point) => (
               <li key={point} className="flex items-start gap-3 font-medium">
                 <CircleCheck
                   className="mt-0.5 size-5 shrink-0 text-brand"

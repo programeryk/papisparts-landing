@@ -1,0 +1,202 @@
+{
+  "meta": {
+    "title": "Papis Parts – części samochodowe Drawsko Pomorskie",
+    "description": "Sklep z częściami samochodowymi w Drawsku Pomorskim. Doradzimy, dobierzemy, zamówimy – części oryginalne i zamienniki do większości marek.",
+    "ogDescription": "Doradzimy, dobierzemy, zamówimy. Bez przerwy w drodze!",
+    "ogImageAlt": "Papis Parts – części samochodowe Drawsko Pomorskie"
+  },
+  "nav": {
+    "services": "Usługi",
+    "mechanic": "Mechanik",
+    "whyUs": "Dlaczego my",
+    "location": "Lokalizacja",
+    "contact": "Kontakt",
+    "reviews": "Opinie"
+  },
+  "header": {
+    "home": "{name} – strona główna",
+    "call": "Zadzwoń: {phone}",
+    "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu",
+    "mainNav": "Główna",
+    "mobileNav": "Mobilna",
+    "language": "Język"
+  },
+  "common": {
+    "writeWhatsapp": "Napisz na WhatsApp",
+    "responseTime": "Odpowiadamy w ciągu 15 minut lub najszybciej, jak możemy"
+  },
+  "hero": {
+    "label": "Papis Parts – sklep motoryzacyjny",
+    "carousel": "karuzela",
+    "eyebrow": "Sklep motoryzacyjny · {city}",
+    "title": "Bez przerwy w drodze",
+    "subtitle": "Doradzimy, dobierzemy, zamówimy.",
+    "call": "Zadzwoń: {phone}",
+    "mechanicLink": "Potrzebujesz mechanika? Polecimy sprawdzonych fachowców",
+    "slide": "Zdjęcie {current} z {total}",
+    "slides": {
+      "interior": "Wnętrze sklepu Papis Parts – plakat Denso i zegar w kształcie koła",
+      "shelves": "Półki z chemią samochodową i wycieraczkami w sklepie Papis Parts",
+      "partsReady": "Części Bosch i Meyle przygotowane do odbioru"
+    }
+  },
+  "trustBar": {
+    "label": "Dlaczego warto",
+    "rating": "{rating} / 5 w opiniach Google",
+    "genuineParts": "Części oryginalne i zamienniki",
+    "pickupDelivery": "Odbiór osobisty i wysyłka"
+  },
+  "services": {
+    "title": "Nasze usługi",
+    "lead": "Oferujemy kompleksowy asortyment części samochodowych dla wszystkich popularnych marek.",
+    "items": {
+      "filters": {
+        "title": "Filtry samochodowe",
+        "description": "Filtry powietrza, oleju, paliwa i kabinowe dla wszystkich marek."
+      },
+      "brakes": {
+        "title": "Układ hamulcowy",
+        "description": "Klocki, tarcze, szczęki i przewody hamulcowe."
+      },
+      "fluids": {
+        "title": "Oleje i płyny",
+        "description": "Oleje silnikowe, przekładniowe, płyny chłodnicze i hamulcowe."
+      },
+      "lighting": {
+        "title": "Oświetlenie",
+        "description": "Żarówki, reflektory, lampy i oświetlenie LED."
+      },
+      "suspension": {
+        "title": "Zawieszenie",
+        "description": "Amortyzatory, sprężyny, wahacze i elementy zawieszenia."
+      },
+      "drivetrain": {
+        "title": "Układ napędowy",
+        "description": "Rozrządy, paski klinowe, sprzęgła i elementy napędu."
+      },
+      "batteries": {
+        "title": "Akumulatory",
+        "description": "Akumulatory do większości marek samochodów."
+      }
+    },
+    "notListed": {
+      "title": "Nie ma tego na liście?",
+      "callUs": "Zadzwoń do nas",
+      "or": "lub",
+      "writeWhatsapp": "napisz na WhatsApp",
+      "rest": "– sprowadzimy część pod Twoje auto."
+    }
+  },
+  "mechanic": {
+    "badge": "Mechanik",
+    "title": "Potrzebujesz mechanika?",
+    "text": "Nie zostawimy Cię z samymi częściami. Polecimy Ci najlepszych mechaników, jakich znamy – sprawdzonych fachowców, którym sami ufamy.",
+    "call": "Zadzwoń i zapytaj",
+    "whatsappMessage": "Dzień dobry, potrzebuję mechanika.",
+    "points": [
+      "Sprawdzeni mechanicy, z którymi współpracujemy",
+      "Części do naprawy dobierzemy i zamówimy u nas",
+      "Jeden telefon – resztą zajmiemy się my"
+    ]
+  },
+  "whyUs": {
+    "title": "Dlaczego właśnie my?",
+    "partsTitle": "Jakie mamy części?",
+    "partsText": "Prowadzimy sprzedaż części samochodowych do większości marek: filtry, klocki i tarcze hamulcowe, oleje silnikowe, płyny eksploatacyjne, żarówki, elementy zawieszenia, rozrządy, akumulatory i wiele więcej. Oferujemy części oryginalne i zamienniki najwyższej jakości – do samochodów m.in. BMW, Audi, Volkswagen, Toyota. Sklep motoryzacyjny, odbiór osobisty w Drawsku Pomorskim.",
+    "items": {
+      "quickQuote": {
+        "title": "Ekspresowa wycena",
+        "description": "Nie czekasz godzinami na odpowiedź – działamy błyskawicznie."
+      },
+      "personal": {
+        "title": "Indywidualne podejście",
+        "description": "Dobieramy części samochodowe pod Twoje potrzeby, nie wciskamy gotowców."
+      },
+      "genuine": {
+        "title": "Oryginalne i zamienne części",
+        "description": "Szeroki wybór – dla każdego auta, każdej marki."
+      },
+      "pickup": {
+        "title": "Odbiór osobisty i wysyłka",
+        "description": "Wygodnie dla Ciebie – na miejscu lub z dostawą."
+      }
+    }
+  },
+  "location": {
+    "title": "Lokalizacja",
+    "mapTitle": "Mapa dojazdu – {name}",
+    "openingHours": "Godziny otwarcia",
+    "parking": "Parking dostępny pod lokalem.",
+    "directions": "Wyznacz trasę"
+  },
+  "hours": {
+    "weekdays": "Pon–Pt",
+    "saturday": "Sobota",
+    "sunday": "Niedziela",
+    "closed": "nieczynne"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "lead": "Powiedz nam czego potrzebujesz, a my zajmiemy się resztą.",
+    "imageAlt": "Witryna sklepu Papis Parts z kołpakami Argo",
+    "onlineHours": "Godziny pracy online:"
+  },
+  "form": {
+    "title": "Formularz kontaktowy",
+    "email": "E-mail",
+    "emailPlaceholder": "jan.kowalski@example.com",
+    "subject": "Temat",
+    "optional": "(opcjonalnie)",
+    "subjectPlaceholder": "np. klocki hamulcowe do Golfa VII",
+    "message": "Wiadomość",
+    "messagePlaceholder": "Marka, model, rocznik i czego potrzebujesz",
+    "honeypot": "Nie wypełniaj tego pola",
+    "send": "Wyślij",
+    "sending": "Wysyłanie…",
+    "sentTitle": "Dziękujemy za wiadomość!",
+    "sentText": "Odezwiemy się wkrótce.",
+    "sendAnother": "Wyślij kolejną wiadomość",
+    "errors": {
+      "emailRequired": "E-mail jest wymagany",
+      "emailInvalid": "Podaj poprawny adres e-mail",
+      "messageRequired": "Wiadomość jest wymagana",
+      "messageTooShort": "Wiadomość musi mieć co najmniej {min} znaków",
+      "unavailable": "Formularz jest chwilowo niedostępny. Zadzwoń lub napisz na WhatsApp.",
+      "rateLimited": "Zbyt wiele prób. Odczekaj chwilę i spróbuj ponownie.",
+      "generic": "Coś poszło nie tak. Spróbuj ponownie później."
+    }
+  },
+  "reviews": {
+    "title": "Co mówią o nas klienci?",
+    "fiveStars": "Ocena 5 na 5",
+    "summary": {
+      "one": "{rating} / 5 na podstawie {count} opinii Google",
+      "few": "{rating} / 5 na podstawie {count} opinii Google",
+      "many": "{rating} / 5 na podstawie {count} opinii Google",
+      "other": "{rating} / 5 na podstawie {count} opinii Google"
+    }
+  },
+  "cta": {
+    "title": "Potrzebujesz części samochodowych?",
+    "text": "Skontaktuj się z nami już teraz i otrzymaj profesjonalną poradę oraz szybką wycenę.",
+    "call": "Zadzwoń teraz",
+    "freeConsultation": "Darmowa konsultacja"
+  },
+  "footer": {
+    "about": "Części samochodowe w Drawsku Pomorskim. Doradzimy, dobierzemy, zamówimy.",
+    "navLabel": "Stopka",
+    "site": "Strona",
+    "contact": "Kontakt",
+    "shop": "Sklep",
+    "googleReviews": "Opinie w Google",
+    "slogan": "Twoja droga do niezawodności"
+  },
+  "floating": {
+    "scrollTop": "Przewiń do góry"
+  },
+  "notFound": {
+    "title": "Nie znaleziono strony",
+    "back": "Wróć na stronę główną"
+  }
+}

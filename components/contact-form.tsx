@@ -2,6 +2,8 @@
 
 import { CircleCheck, LoaderCircle, Send } from "lucide-react";
 import { type FormEvent, useId, useState } from "react";
+import { format } from "@/i18n/format";
+import type { Messages } from "@/i18n/messages";
 
 const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
@@ -11,32 +13,35 @@ const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MIN_MESSAGE_LENGTH = 10;
 
 type Fields = { email: string; title: string; message: string };
-type FieldErrors = Partial<Record<"email" | "message", string>>;
+type ErrorKey = keyof Messages["form"]["errors"];
+type FieldErrors = Partial<Record<"email" | "message", ErrorKey>>;
 type Status = "idle" | "sending" | "sent" | "error";
 
 const emptyFields: Fields = { email: "", title: "", message: "" };
 
 function validate({ email, message }: Fields): FieldErrors {
   const errors: FieldErrors = {};
-  if (!email.trim()) errors.email = "E-mail jest wymagany";
-  else if (!EMAIL_PATTERN.test(email.trim()))
-    errors.email = "Podaj poprawny adres e-mail";
+  if (!email.trim()) errors.email = "emailRequired";
+  else if (!EMAIL_PATTERN.test(email.trim())) errors.email = "emailInvalid";
 
-  if (!message.trim()) errors.message = "Wiadomość jest wymagana";
+  if (!message.trim()) errors.message = "messageRequired";
   else if (message.trim().length < MIN_MESSAGE_LENGTH)
-    errors.message = `Wiadomość musi mieć co najmniej ${MIN_MESSAGE_LENGTH} znaków`;
+    errors.message = "messageTooShort";
   return errors;
 }
 
 const inputClass =
   "w-full rounded-lg border bg-white p-3 text-base outline-none transition-colors placeholder:text-gray-400 focus:border-brand focus:ring-2 focus:ring-brand/15";
 
-export function ContactForm() {
+export function ContactForm({ m }: { m: Messages["form"] }) {
   const id = useId();
   const [fields, setFields] = useState<Fields>(emptyFields);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>("idle");
-  const [submitError, setSubmitError] = useState("");
+  const [submitError, setSubmitError] = useState<ErrorKey>("generic");
+
+  const errorText = (key: ErrorKey) =>
+    format(m.errors[key], { min: MIN_MESSAGE_LENGTH });
 
   function update(name: keyof Fields, value: string) {
     setFields((current) => ({ ...current, [name]: value }));
@@ -65,9 +70,7 @@ export function ContactForm() {
       console.error(
         "EmailJS is not configured: missing NEXT_PUBLIC_EMAILJS_* env vars",
       );
-      setSubmitError(
-        "Formularz jest chwilowo niedostępny. Zadzwoń lub napisz na WhatsApp.",
-      );
+      setSubmitError("unavailable");
       setStatus("error");
       return;
     }
@@ -94,11 +97,7 @@ export function ContactForm() {
     } catch (error) {
       const rateLimited =
         error instanceof Object && "status" in error && error.status === 429;
-      setSubmitError(
-        rateLimited
-          ? "Zbyt wiele prób. Odczekaj chwilę i spróbuj ponownie."
-          : "Coś poszło nie tak. Spróbuj ponownie później.",
-      );
+      setSubmitError(rateLimited ? "rateLimited" : "generic");
       setStatus("error");
     }
   }
@@ -110,14 +109,14 @@ export function ContactForm() {
         className="flex flex-col items-center gap-3 rounded-xl border border-line bg-surface p-10 text-center"
       >
         <CircleCheck className="size-12 text-brand" aria-hidden="true" />
-        <p className="text-lg font-bold text-ink">Dziękujemy za wiadomość!</p>
-        <p className="text-gray-600">Odezwiemy się wkrótce.</p>
+        <p className="text-lg font-bold text-ink">{m.sentTitle}</p>
+        <p className="text-gray-600">{m.sentText}</p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
           className="mt-2 text-sm font-semibold text-brand underline-offset-4 hover:underline"
         >
-          Wyślij kolejną wiadomość
+          {m.sendAnother}
         </button>
       </div>
     );
@@ -133,7 +132,7 @@ export function ContactForm() {
       className="relative flex w-full flex-col gap-5 rounded-xl border border-line bg-surface p-6 sm:p-8"
     >
       <h3 id={`${id}-title`} className="text-2xl font-extrabold text-ink">
-        Formularz kontaktowy
+        {m.title}
       </h3>
 
       <div className="flex flex-col gap-1.5">
@@ -141,14 +140,14 @@ export function ContactForm() {
           htmlFor={`${id}-email`}
           className="text-sm font-semibold text-gray-800"
         >
-          E-mail
+          {m.email}
         </label>
         <input
           id={`${id}-email`}
           type="email"
           name="email"
           autoComplete="email"
-          placeholder="jan.kowalski@example.com"
+          placeholder={m.emailPlaceholder}
           value={fields.email}
           onChange={(event) => update("email", event.target.value)}
           aria-invalid={Boolean(errors.email)}
@@ -157,7 +156,7 @@ export function ContactForm() {
         />
         {errors.email && (
           <p id={`${id}-email-error`} className="text-sm text-red-600">
-            {errors.email}
+            {errorText(errors.email)}
           </p>
         )}
       </div>
@@ -167,14 +166,15 @@ export function ContactForm() {
           htmlFor={`${id}-title-input`}
           className="text-sm font-semibold text-gray-800"
         >
-          Temat <span className="font-normal text-gray-500">(opcjonalnie)</span>
+          {m.subject}{" "}
+          <span className="font-normal text-gray-500">{m.optional}</span>
         </label>
         <input
           id={`${id}-title-input`}
           type="text"
           name="title"
           autoComplete="off"
-          placeholder="np. klocki hamulcowe do Golfa VII"
+          placeholder={m.subjectPlaceholder}
           value={fields.title}
           onChange={(event) => update("title", event.target.value)}
           className={`${inputClass} border-line`}
@@ -186,13 +186,13 @@ export function ContactForm() {
           htmlFor={`${id}-message`}
           className="text-sm font-semibold text-gray-800"
         >
-          Wiadomość
+          {m.message}
         </label>
         <textarea
           id={`${id}-message`}
           name="message"
           rows={5}
-          placeholder="Marka, model, rocznik i czego potrzebujesz"
+          placeholder={m.messagePlaceholder}
           value={fields.message}
           onChange={(event) => update("message", event.target.value)}
           aria-invalid={Boolean(errors.message)}
@@ -201,13 +201,13 @@ export function ContactForm() {
         />
         {errors.message && (
           <p id={`${id}-message-error`} className="text-sm text-red-600">
-            {errors.message}
+            {errorText(errors.message)}
           </p>
         )}
       </div>
 
       <div aria-hidden="true" className="absolute -left-[9999px]">
-        <label htmlFor={`${id}-gotcha`}>Nie wypełniaj tego pola</label>
+        <label htmlFor={`${id}-gotcha`}>{m.honeypot}</label>
         <input
           id={`${id}-gotcha`}
           type="text"
@@ -222,7 +222,7 @@ export function ContactForm() {
           role="alert"
           className="rounded-lg bg-red-50 p-3 text-sm font-semibold text-red-700"
         >
-          {submitError}
+          {errorText(submitError)}
         </p>
       )}
 
@@ -236,7 +236,7 @@ export function ContactForm() {
         ) : (
           <Send className="size-5" aria-hidden="true" />
         )}
-        {sending ? "Wysyłanie…" : "Wyślij"}
+        {sending ? m.sending : m.send}
       </button>
     </form>
   );

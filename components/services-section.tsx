@@ -8,51 +8,28 @@ import {
   type LucideIcon,
   Wrench,
 } from "lucide-react";
-import { site } from "@/lib/site";
+import { getI18n, type Messages } from "@/i18n/messages";
+import { site, whatsappLink } from "@/lib/site";
 import { Reveal } from "./reveal";
 import { SectionHeading } from "./section-heading";
 
-const services: { title: string; description: string; icon: LucideIcon }[] = [
-  {
-    title: "Filtry samochodowe",
-    description:
-      "Filtry powietrza, oleju, paliwa i kabinowe dla wszystkich marek.",
-    icon: Funnel,
-  },
-  {
-    title: "Układ hamulcowy",
-    description: "Klocki, tarcze, szczęki i przewody hamulcowe.",
-    icon: Disc3,
-  },
-  {
-    title: "Oleje i płyny",
-    description:
-      "Oleje silnikowe, przekładniowe, płyny chłodnicze i hamulcowe.",
-    icon: Droplets,
-  },
-  {
-    title: "Oświetlenie",
-    description: "Żarówki, reflektory, lampy i oświetlenie LED.",
-    icon: Lightbulb,
-  },
-  {
-    title: "Zawieszenie",
-    description: "Amortyzatory, sprężyny, wahacze i elementy zawieszenia.",
-    icon: Wrench,
-  },
-  {
-    title: "Układ napędowy",
-    description: "Rozrządy, paski klinowe, sprzęgła i elementy napędu.",
-    icon: Cog,
-  },
-  {
-    title: "Akumulatory",
-    description: "Akumulatory do większości marek samochodów.",
-    icon: BatteryCharging,
-  },
-];
+const services = [
+  { key: "filters", icon: Funnel },
+  { key: "brakes", icon: Disc3 },
+  { key: "fluids", icon: Droplets },
+  { key: "lighting", icon: Lightbulb },
+  { key: "suspension", icon: Wrench },
+  { key: "drivetrain", icon: Cog },
+  { key: "batteries", icon: BatteryCharging },
+] as const satisfies readonly {
+  key: keyof Messages["services"]["items"];
+  icon: LucideIcon;
+}[];
 
-export function ServicesSection() {
+export async function ServicesSection() {
+  const { m } = await getI18n();
+  const { notListed } = m.services;
+
   return (
     <section
       id="uslugi"
@@ -61,15 +38,15 @@ export function ServicesSection() {
     >
       <SectionHeading
         id="uslugi-title"
-        title="Nasze usługi"
-        lead="Oferujemy kompleksowy asortyment części samochodowych dla wszystkich popularnych marek."
+        title={m.services.title}
+        lead={m.services.lead}
       />
 
       <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {services.map(({ title, description, icon: Icon }, i) => (
+        {services.map(({ key, icon: Icon }, i) => (
           <Reveal
             as="li"
-            key={title}
+            key={key}
             delay={(i % 4) * 0.08}
             className="group flex flex-col gap-4 rounded-xl border border-transparent bg-white p-6 shadow-sm transition-[border-color,box-shadow] duration-300 hover:border-brand/20 hover:shadow-xl"
           >
@@ -77,9 +54,11 @@ export function ServicesSection() {
               <Icon className="size-6" aria-hidden="true" />
             </span>
             <div>
-              <h3 className="mb-1.5 text-lg font-bold text-ink">{title}</h3>
+              <h3 className="mb-1.5 text-lg font-bold text-ink">
+                {m.services.items[key].title}
+              </h3>
               <p className="text-sm leading-relaxed text-gray-600">
-                {description}
+                {m.services.items[key].description}
               </p>
             </div>
           </Reveal>
@@ -89,24 +68,24 @@ export function ServicesSection() {
           delay={0.24}
           className="flex flex-col justify-center rounded-xl bg-ink p-6 text-white shadow-sm"
         >
-          <h3 className="mb-1.5 text-lg font-bold">Nie ma tego na liście?</h3>
+          <h3 className="mb-1.5 text-lg font-bold">{notListed.title}</h3>
           <p className="text-sm leading-relaxed text-white/75">
             <a
               href={site.phone.href}
               className="font-semibold text-white underline decoration-brand decoration-2 underline-offset-4 hover:text-brand"
             >
-              Zadzwoń do nas
+              {notListed.callUs}
             </a>{" "}
-            lub{" "}
+            {notListed.or}{" "}
             <a
-              href={site.whatsapp}
+              href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold text-white underline decoration-brand decoration-2 underline-offset-4 hover:text-brand"
             >
-              napisz na WhatsApp
+              {notListed.writeWhatsapp}
             </a>{" "}
-            – sprowadzimy część pod Twoje auto.
+            {notListed.rest}
           </p>
         </Reveal>
       </ul>

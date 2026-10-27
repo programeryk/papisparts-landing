@@ -1,6 +1,7 @@
 import { Clock, Mail, Phone } from "lucide-react";
 import Image from "next/image";
-import { site } from "@/lib/site";
+import { getI18n } from "@/i18n/messages";
+import { site, whatsappLink } from "@/lib/site";
 import { ButtonLink } from "./button-link";
 import { ContactForm } from "./contact-form";
 import { WhatsAppIcon } from "./icons";
@@ -12,21 +13,23 @@ const channels = [
   { icon: Mail, label: site.email, href: `mailto:${site.email}` },
 ] as const;
 
-export function ContactSection() {
+export async function ContactSection() {
+  const { m } = await getI18n();
+
   return (
     <section id="kontakt" aria-labelledby="kontakt-title" className="bg-white">
       <div className="mx-auto max-w-6xl px-4 py-24">
         <SectionHeading
           id="kontakt-title"
-          title="Kontakt"
-          lead="Powiedz nam czego potrzebujesz, a my zajmiemy się resztą."
+          title={m.contact.title}
+          lead={m.contact.lead}
         />
 
         <div className="grid items-start gap-10 lg:grid-cols-2">
           <Reveal className="flex flex-col gap-6">
             <Image
               src="/images/shop-window.jpg"
-              alt="Witryna sklepu Papis Parts z kołpakami Argo"
+              alt={m.contact.imageAlt}
               width={1600}
               height={900}
               sizes="(min-width: 1024px) 560px, 100vw"
@@ -49,24 +52,24 @@ export function ContactSection() {
             </ul>
             <p className="flex items-center gap-2 text-gray-600">
               <Clock className="size-5 text-brand" aria-hidden="true" />
-              Godziny pracy online:
+              {m.contact.onlineHours}
               <span className="font-semibold text-gray-800">
                 {site.onlineHours}
               </span>
             </p>
             <ButtonLink
-              href={site.whatsapp}
+              href={whatsappLink()}
               external
               variant="whatsapp"
               className="self-start"
             >
               <WhatsAppIcon className="size-5" />
-              Napisz na WhatsApp
+              {m.common.writeWhatsapp}
             </ButtonLink>
           </Reveal>
 
           <Reveal delay={0.15}>
-            <ContactForm />
+            <ContactForm m={m.form} />
           </Reveal>
         </div>
       </div>

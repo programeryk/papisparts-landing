@@ -1,31 +1,26 @@
-import { ShieldCheck, Timer, Truck, UserCheck } from "lucide-react";
+import {
+  type LucideIcon,
+  ShieldCheck,
+  Timer,
+  Truck,
+  UserCheck,
+} from "lucide-react";
+import { getI18n, type Messages } from "@/i18n/messages";
 import { Reveal } from "./reveal";
 
 const reasons = [
-  {
-    title: "Ekspresowa wycena",
-    description: "Nie czekasz godzinami na odpowiedź – działamy błyskawicznie.",
-    icon: Timer,
-  },
-  {
-    title: "Indywidualne podejście",
-    description:
-      "Dobieramy części samochodowe pod Twoje potrzeby, nie wciskamy gotowców.",
-    icon: UserCheck,
-  },
-  {
-    title: "Oryginalne i zamienne części",
-    description: "Szeroki wybór – dla każdego auta, każdej marki.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Odbiór osobisty i wysyłka",
-    description: "Wygodnie dla Ciebie – na miejscu lub z dostawą.",
-    icon: Truck,
-  },
-] as const;
+  { key: "quickQuote", icon: Timer },
+  { key: "personal", icon: UserCheck },
+  { key: "genuine", icon: ShieldCheck },
+  { key: "pickup", icon: Truck },
+] as const satisfies readonly {
+  key: keyof Messages["whyUs"]["items"];
+  icon: LucideIcon;
+}[];
 
-export function WhyUsSection() {
+export async function WhyUsSection() {
+  const { m } = await getI18n();
+
   return (
     <section
       id="dlaczego-my"
@@ -38,27 +33,22 @@ export function WhyUsSection() {
             id="dlaczego-my-title"
             className="font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl"
           >
-            Dlaczego właśnie my?
+            {m.whyUs.title}
           </h2>
           <span className="mt-4 block h-1 w-12 rounded-full bg-brand" />
           <h3 className="mt-6 text-lg font-bold text-ink">
-            Jakie mamy części?
+            {m.whyUs.partsTitle}
           </h3>
           <p className="mt-2 leading-relaxed font-medium text-gray-700">
-            Prowadzimy sprzedaż części samochodowych do większości marek:
-            filtry, klocki i tarcze hamulcowe, oleje silnikowe, płyny
-            eksploatacyjne, żarówki, elementy zawieszenia, rozrządy, akumulatory
-            i wiele więcej. Oferujemy części oryginalne i zamienniki najwyższej
-            jakości – do samochodów m.in. BMW, Audi, Volkswagen, Toyota. Sklep
-            motoryzacyjny, odbiór osobisty w Drawsku Pomorskim.
+            {m.whyUs.partsText}
           </p>
         </Reveal>
 
         <ul className="grid gap-5 sm:grid-cols-2">
-          {reasons.map(({ title, description, icon: Icon }, i) => (
+          {reasons.map(({ key, icon: Icon }, i) => (
             <Reveal
               as="li"
-              key={title}
+              key={key}
               delay={i * 0.1}
               className="group rounded-xl border border-line bg-surface p-6 transition-[border-color,box-shadow] duration-300 hover:border-brand/30 hover:shadow-lg"
             >
@@ -67,9 +57,11 @@ export function WhyUsSection() {
                 aria-hidden="true"
               />
               <h3 className="mb-1.5 text-lg font-extrabold text-ink">
-                {title}
+                {m.whyUs.items[key].title}
               </h3>
-              <p className="text-sm font-medium text-gray-600">{description}</p>
+              <p className="text-sm font-medium text-gray-600">
+                {m.whyUs.items[key].description}
+              </p>
             </Reveal>
           ))}
         </ul>

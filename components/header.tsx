@@ -3,10 +3,20 @@
 import { Menu, Phone, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import type { Locale } from "@/i18n/config";
+import { format } from "@/i18n/format";
+import type { Messages } from "@/i18n/messages";
 import { navigation, site } from "@/lib/site";
 import { ButtonLink } from "./button-link";
+import { LanguageSwitcher } from "./language-switcher";
 
-export function Header() {
+type HeaderProps = {
+  locale: Locale;
+  nav: Messages["nav"];
+  m: Messages["header"];
+};
+
+export function Header({ locale, nav, m }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -35,7 +45,7 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-4">
-        <a href="#top" aria-label={`${site.name} – strona główna`}>
+        <a href="#top" aria-label={format(m.home, { name: site.name })}>
           <Image
             src="/logo.png"
             alt=""
@@ -46,22 +56,23 @@ export function Header() {
           />
         </a>
 
-        <nav aria-label="Główna" className="hidden lg:block">
+        <nav aria-label={m.mainNav} className="hidden lg:block">
           <ul className="flex items-center gap-7 text-sm font-semibold text-gray-700">
             {navigation.map((item) => (
-              <li key={item.href}>
+              <li key={item.id}>
                 <a
-                  href={item.href}
+                  href={`#${item.id}`}
                   className="transition-colors hover:text-brand"
                 >
-                  {item.label}
+                  {nav[item.label]}
                 </a>
               </li>
             ))}
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
+          <LanguageSwitcher locale={locale} label={m.language} />
           <span className="hidden sm:block">
             <ButtonLink href={site.phone.href} size="sm">
               <Phone className="size-4" aria-hidden="true" />
@@ -70,7 +81,7 @@ export function Header() {
           </span>
           <a
             href={site.phone.href}
-            aria-label={`Zadzwoń: ${site.phone.display}`}
+            aria-label={format(m.call, { phone: site.phone.display })}
             className="grid size-10 place-items-center rounded-lg bg-brand text-white sm:hidden"
           >
             <Phone className="size-5" aria-hidden="true" />
@@ -80,7 +91,7 @@ export function Header() {
             onClick={() => setMenuOpen((open) => !open)}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
-            aria-label={menuOpen ? "Zamknij menu" : "Otwórz menu"}
+            aria-label={menuOpen ? m.closeMenu : m.openMenu}
             className="grid size-10 place-items-center rounded-lg text-ink hover:bg-surface lg:hidden"
           >
             {menuOpen ? (
@@ -95,18 +106,18 @@ export function Header() {
       {menuOpen && (
         <nav
           id="mobile-menu"
-          aria-label="Mobilna"
+          aria-label={m.mobileNav}
           className="border-t border-line bg-white lg:hidden"
         >
           <ul className="mx-auto flex max-w-6xl flex-col px-4 py-2">
             {navigation.map((item) => (
-              <li key={item.href}>
+              <li key={item.id}>
                 <a
-                  href={item.href}
+                  href={`#${item.id}`}
                   onClick={() => setMenuOpen(false)}
                   className="block py-3 text-base font-semibold text-gray-800 hover:text-brand"
                 >
-                  {item.label}
+                  {nav[item.label]}
                 </a>
               </li>
             ))}

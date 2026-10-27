@@ -9,40 +9,33 @@ const fullAddress = `${address.street}, ${address.postalCode} ${address.city}`;
 export const site = {
   name: "Papis Parts",
   url: "https://www.papisparts.com",
-  title: "Papis Parts – części samochodowe Drawsko Pomorskie",
-  description:
-    "Sklep z częściami samochodowymi w Drawsku Pomorskim. Doradzimy, dobierzemy, zamówimy – części oryginalne i zamienniki do większości marek.",
-  slogan: "Twoja droga do niezawodności",
   email: "papisparts@gmail.com",
   phone: {
     display: "888 399 666",
     href: `tel:${phone}`,
     e164: phone,
   },
-  whatsapp: `https://wa.me/${phone.slice(1)}`,
-  mechanicWhatsapp: `https://wa.me/${phone.slice(1)}?text=${encodeURIComponent("Dzień dobry, potrzebuję mechanika.")}`,
   address,
   fullAddress,
   openingHours: [
     {
-      days: "Pon–Pt",
+      days: "weekdays",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       opens: "08:00",
       closes: "16:30",
     },
     {
-      days: "Sobota",
+      days: "saturday",
       dayOfWeek: ["Saturday"],
       opens: "08:00",
       closes: "13:00",
     },
   ],
   onlineHours: "24/7",
-  responseTime: "Odpowiadamy w ciągu 15 minut lub najszybciej, jak możemy",
   google: {
     name: "Auto Części Drawsko Pomorskie ∴ PapisParts",
     profile: "https://share.google/MKinuU64jeFVunsAD",
-    rating: { value: "4.7", count: 15 },
+    rating: { value: 4.7, count: 15 },
   },
   maps: {
     link: `https://maps.google.com/?q=${encodeURIComponent(fullAddress)}`,
@@ -52,10 +45,15 @@ export const site = {
 } as const;
 
 export const navigation = [
-  { href: "#uslugi", label: "Usługi" },
-  { href: "#mechanik", label: "Mechanik" },
-  { href: "#dlaczego-my", label: "Dlaczego my" },
-  { href: "#lokalizacja", label: "Lokalizacja" },
-  { href: "#kontakt", label: "Kontakt" },
-  { href: "#opinie", label: "Opinie" },
+  { id: "uslugi", label: "services" },
+  { id: "mechanik", label: "mechanic" },
+  { id: "dlaczego-my", label: "whyUs" },
+  { id: "lokalizacja", label: "location" },
+  { id: "kontakt", label: "contact" },
+  { id: "opinie", label: "reviews" },
 ] as const;
+
+export function whatsappLink(text?: string) {
+  const base = `https://wa.me/${phone.slice(1)}`;
+  return text ? `${base}?text=${encodeURIComponent(text)}` : base;
+}

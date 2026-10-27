@@ -1,0 +1,202 @@
+{
+  "meta": {
+    "title": "Papis Parts – car parts in Drawsko Pomorskie",
+    "description": "Car parts shop in Drawsko Pomorskie, Poland. We advise, match and order – genuine parts and quality replacements for most makes.",
+    "ogDescription": "We advise, match and order. Keep moving!",
+    "ogImageAlt": "Papis Parts – car parts in Drawsko Pomorskie"
+  },
+  "nav": {
+    "services": "Services",
+    "mechanic": "Mechanic",
+    "whyUs": "Why us",
+    "location": "Location",
+    "contact": "Contact",
+    "reviews": "Reviews"
+  },
+  "header": {
+    "home": "{name} – home page",
+    "call": "Call: {phone}",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "mainNav": "Main",
+    "mobileNav": "Mobile",
+    "language": "Language"
+  },
+  "common": {
+    "writeWhatsapp": "Message us on WhatsApp",
+    "responseTime": "We reply within 15 minutes, or as fast as we can"
+  },
+  "hero": {
+    "label": "Papis Parts – car parts shop",
+    "carousel": "carousel",
+    "eyebrow": "Car parts shop · {city}",
+    "title": "Keep moving",
+    "subtitle": "We advise, match and order.",
+    "call": "Call: {phone}",
+    "mechanicLink": "Need a mechanic? We'll recommend trusted pros",
+    "slide": "Photo {current} of {total}",
+    "slides": {
+      "interior": "Inside the Papis Parts shop – a Denso poster and a wheel-shaped clock",
+      "shelves": "Shelves with car care products and wiper blades at Papis Parts",
+      "partsReady": "Bosch and Meyle parts ready for pickup"
+    }
+  },
+  "trustBar": {
+    "label": "Why choose us",
+    "rating": "{rating} / 5 on Google reviews",
+    "genuineParts": "Genuine parts and replacements",
+    "pickupDelivery": "In-store pickup and delivery"
+  },
+  "services": {
+    "title": "What we offer",
+    "lead": "A full range of car parts for all popular makes.",
+    "items": {
+      "filters": {
+        "title": "Filters",
+        "description": "Air, oil, fuel and cabin filters for every make."
+      },
+      "brakes": {
+        "title": "Brakes",
+        "description": "Pads, discs, shoes and brake lines."
+      },
+      "fluids": {
+        "title": "Oils and fluids",
+        "description": "Engine and gear oils, coolants and brake fluids."
+      },
+      "lighting": {
+        "title": "Lighting",
+        "description": "Bulbs, headlights, lamps and LED lighting."
+      },
+      "suspension": {
+        "title": "Suspension",
+        "description": "Shock absorbers, springs, control arms and suspension parts."
+      },
+      "drivetrain": {
+        "title": "Drivetrain",
+        "description": "Timing kits, drive belts, clutches and drivetrain parts."
+      },
+      "batteries": {
+        "title": "Batteries",
+        "description": "Batteries for most car makes."
+      }
+    },
+    "notListed": {
+      "title": "Not on the list?",
+      "callUs": "Call us",
+      "or": "or",
+      "writeWhatsapp": "message us on WhatsApp",
+      "rest": "– we'll source the part for your car."
+    }
+  },
+  "mechanic": {
+    "badge": "Mechanic",
+    "title": "Need a mechanic?",
+    "text": "We won't leave you with just the parts. We'll put you in touch with the best mechanics we know – proven pros we trust ourselves.",
+    "call": "Call and ask",
+    "whatsappMessage": "Hello, I need a mechanic.",
+    "points": [
+      "Proven mechanics we work with",
+      "We'll match and order the parts for the repair",
+      "One call – we'll handle the rest"
+    ]
+  },
+  "whyUs": {
+    "title": "Why choose us?",
+    "partsTitle": "What parts do we have?",
+    "partsText": "We sell car parts for most makes: filters, brake pads and discs, engine oils, service fluids, bulbs, suspension parts, timing kits, batteries and much more. We offer genuine parts and top-quality replacements – for cars such as BMW, Audi, Volkswagen and Toyota. Car parts shop with in-store pickup in Drawsko Pomorskie.",
+    "items": {
+      "quickQuote": {
+        "title": "Fast quotes",
+        "description": "No waiting hours for an answer – we act right away."
+      },
+      "personal": {
+        "title": "Personal approach",
+        "description": "We match parts to what you actually need, no one-size-fits-all."
+      },
+      "genuine": {
+        "title": "Genuine and replacement parts",
+        "description": "A wide choice – for every car, every make."
+      },
+      "pickup": {
+        "title": "Pickup and delivery",
+        "description": "Whatever suits you – in store or delivered."
+      }
+    }
+  },
+  "location": {
+    "title": "Location",
+    "mapTitle": "Map – {name}",
+    "openingHours": "Opening hours",
+    "parking": "Parking available right outside.",
+    "directions": "Get directions"
+  },
+  "hours": {
+    "weekdays": "Mon–Fri",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "closed": "closed"
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "Tell us what you need and we'll take care of the rest.",
+    "imageAlt": "Papis Parts shop window with Argo wheel covers",
+    "onlineHours": "Online hours:"
+  },
+  "form": {
+    "title": "Contact form",
+    "email": "Email",
+    "emailPlaceholder": "john.smith@example.com",
+    "subject": "Subject",
+    "optional": "(optional)",
+    "subjectPlaceholder": "e.g. brake pads for a Golf VII",
+    "message": "Message",
+    "messagePlaceholder": "Make, model, year and what you need",
+    "honeypot": "Leave this field empty",
+    "send": "Send",
+    "sending": "Sending…",
+    "sentTitle": "Thanks for your message!",
+    "sentText": "We'll get back to you soon.",
+    "sendAnother": "Send another message",
+    "errors": {
+      "emailRequired": "Email is required",
+      "emailInvalid": "Enter a valid email address",
+      "messageRequired": "Message is required",
+      "messageTooShort": "Message must be at least {min} characters",
+      "unavailable": "The form is temporarily unavailable. Please call or message us on WhatsApp.",
+      "rateLimited": "Too many attempts. Please wait a moment and try again.",
+      "generic": "Something went wrong. Please try again later."
+    }
+  },
+  "reviews": {
+    "title": "What our customers say",
+    "fiveStars": "Rated 5 out of 5",
+    "summary": {
+      "one": "{rating} / 5 based on {count} Google review",
+      "few": "{rating} / 5 based on {count} Google reviews",
+      "many": "{rating} / 5 based on {count} Google reviews",
+      "other": "{rating} / 5 based on {count} Google reviews"
+    }
+  },
+  "cta": {
+    "title": "Need car parts?",
+    "text": "Get in touch now for expert advice and a fast quote.",
+    "call": "Call now",
+    "freeConsultation": "Free consultation"
+  },
+  "footer": {
+    "about": "Car parts in Drawsko Pomorskie. We advise, match and order.",
+    "navLabel": "Footer",
+    "site": "Site",
+    "contact": "Contact",
+    "shop": "Shop",
+    "googleReviews": "Google reviews",
+    "slogan": "Your road to reliability"
+  },
+  "floating": {
+    "scrollTop": "Back to top"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "back": "Back to the home page"
+  }
+}

@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { defaultLocale } from "./i18n/config";
 
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
@@ -15,8 +16,22 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  experimental: {
+    globalNotFound: true,
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
+  },
+  // The default locale lives at the bare domain; /pl is only its internal path.
+  async redirects() {
+    return [{ source: `/${defaultLocale}`, destination: "/", permanent: true }];
+  },
+  async rewrites() {
+    return {
+      beforeFiles: [{ source: "/", destination: `/${defaultLocale}` }],
+      afterFiles: [],
+      fallback: [],
+    };
   },
 };
 

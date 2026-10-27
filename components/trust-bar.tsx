@@ -1,17 +1,25 @@
 import { PackageCheck, ShieldCheck, Star, Timer } from "lucide-react";
+import { format, formatDecimal } from "@/i18n/format";
+import { getI18n } from "@/i18n/messages";
 import { site } from "@/lib/site";
 
-const highlights = [
-  { icon: Star, label: `${site.google.rating.value} / 5 w opiniach Google` },
-  { icon: Timer, label: site.responseTime },
-  { icon: ShieldCheck, label: "Części oryginalne i zamienniki" },
-  { icon: PackageCheck, label: "Odbiór osobisty i wysyłka" },
-] as const;
+export async function TrustBar() {
+  const { locale, m } = await getI18n();
+  const highlights = [
+    {
+      icon: Star,
+      label: format(m.trustBar.rating, {
+        rating: formatDecimal(locale, site.google.rating.value),
+      }),
+    },
+    { icon: Timer, label: m.common.responseTime },
+    { icon: ShieldCheck, label: m.trustBar.genuineParts },
+    { icon: PackageCheck, label: m.trustBar.pickupDelivery },
+  ];
 
-export function TrustBar() {
   return (
     <section
-      aria-label="Dlaczego warto"
+      aria-label={m.trustBar.label}
       className="border-b border-line bg-white"
     >
       <ul className="mx-auto grid w-fit max-w-6xl gap-x-6 gap-y-3 px-4 py-5 text-sm font-semibold text-gray-800 sm:w-full sm:grid-cols-2 lg:grid-cols-4">

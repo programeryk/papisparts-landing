@@ -1,10 +1,13 @@
 import { Phone } from "lucide-react";
-import { site } from "@/lib/site";
+import { getI18n } from "@/i18n/messages";
+import { site, whatsappLink } from "@/lib/site";
 import { ButtonLink } from "./button-link";
 import { WhatsAppIcon } from "./icons";
 import { Reveal } from "./reveal";
 
-export function CTASection() {
+export async function CTASection() {
+  const { m } = await getI18n();
+
   return (
     <section
       aria-labelledby="cta-title"
@@ -19,24 +22,28 @@ export function CTASection() {
           id="cta-title"
           className="font-display text-3xl font-extrabold tracking-tight md:text-5xl"
         >
-          Potrzebujesz części samochodowych?
+          {m.cta.title}
         </h2>
         <p className="mx-auto mt-5 max-w-2xl text-lg text-white/90 md:text-xl">
-          Skontaktuj się z nami już teraz i otrzymaj profesjonalną poradę oraz
-          szybką wycenę.
+          {m.cta.text}
         </p>
         <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <ButtonLink href={site.phone.href} variant="light" size="lg">
             <Phone className="size-5" aria-hidden="true" />
-            Zadzwoń teraz
+            {m.cta.call}
           </ButtonLink>
-          <ButtonLink href={site.whatsapp} external variant="outline" size="lg">
+          <ButtonLink
+            href={whatsappLink()}
+            external
+            variant="outline"
+            size="lg"
+          >
             <WhatsAppIcon className="size-5" />
             WhatsApp
           </ButtonLink>
         </div>
         <p className="mt-6 text-sm text-white/75">
-          {site.responseTime} • Darmowa konsultacja
+          {m.common.responseTime} • {m.cta.freeConsultation}
         </p>
       </Reveal>
     </section>

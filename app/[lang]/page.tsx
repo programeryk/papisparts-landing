@@ -7,11 +7,14 @@ import { ReviewsSection } from "@/components/reviews-section";
 import { ServicesSection } from "@/components/services-section";
 import { TrustBar } from "@/components/trust-bar";
 import { WhyUsSection } from "@/components/why-us-section";
+import { getI18n } from "@/i18n/messages";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const { m } = await getI18n();
+
   return (
     <>
-      <Hero />
+      <Hero m={m.hero} writeWhatsapp={m.common.writeWhatsapp} />
       <TrustBar />
       <ServicesSection />
       <MechanicSection />
