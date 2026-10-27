@@ -35,7 +35,7 @@ export const site = {
   google: {
     name: "Auto Części Drawsko Pomorskie ∴ PapisParts",
     profile: "https://share.google/MKinuU64jeFVunsAD",
-    rating: { value: 4.7, count: 15 },
+    rating: { value: 4.8, count: 26 },
   },
   maps: {
     link: `https://maps.google.com/?q=${encodeURIComponent(fullAddress)}`,
