@@ -66,13 +66,14 @@ export function ReviewsSection() {
 
       <Reveal delay={0.3} className="mt-10 flex justify-center">
         <a
-          href={site.maps.link}
+          href={site.google.profile}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-full border border-line bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 shadow-sm transition-colors hover:border-brand/40 hover:text-brand"
         >
           <Star className="size-4 fill-star text-star" aria-hidden="true" />
-          {site.rating.value} / 5 na podstawie {site.rating.count} opinii Google
+          {site.google.rating.value} / 5 na podstawie {site.google.rating.count}{" "}
+          opinii Google
           <ExternalLink className="size-4" aria-hidden="true" />
         </a>
       </Reveal>

@@ -47,6 +47,7 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "AutoPartsStore",
   name: site.name,
+  alternateName: site.google.name,
   description: site.description,
   url: site.url,
   logo: `${site.url}/logo.png`,
@@ -61,6 +62,7 @@ const structuredData = {
     addressCountry: "PL",
   },
   hasMap: site.maps.link,
+  sameAs: [site.google.profile],
   openingHoursSpecification: site.openingHours.map((entry) => ({
     "@type": "OpeningHoursSpecification",
     dayOfWeek: entry.dayOfWeek,

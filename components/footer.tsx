@@ -57,6 +57,16 @@ export function Footer() {
                 WhatsApp
               </a>
             </li>
+            <li>
+              <a
+                href={site.google.profile}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-brand"
+              >
+                Opinie w Google
+              </a>
+            </li>
           </ul>
         </div>
 

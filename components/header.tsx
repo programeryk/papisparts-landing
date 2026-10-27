@@ -46,7 +46,7 @@ export function Header() {
           />
         </a>
 
-        <nav aria-label="Główna" className="hidden md:block">
+        <nav aria-label="Główna" className="hidden lg:block">
           <ul className="flex items-center gap-7 text-sm font-semibold text-gray-700">
             {navigation.map((item) => (
               <li key={item.href}>
@@ -81,7 +81,7 @@ export function Header() {
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Zamknij menu" : "Otwórz menu"}
-            className="grid size-10 place-items-center rounded-lg text-ink hover:bg-surface md:hidden"
+            className="grid size-10 place-items-center rounded-lg text-ink hover:bg-surface lg:hidden"
           >
             {menuOpen ? (
               <X className="size-6" aria-hidden="true" />
@@ -96,7 +96,7 @@ export function Header() {
         <nav
           id="mobile-menu"
           aria-label="Mobilna"
-          className="border-t border-line bg-white md:hidden"
+          className="border-t border-line bg-white lg:hidden"
         >
           <ul className="mx-auto flex max-w-6xl flex-col px-4 py-2">
             {navigation.map((item) => (

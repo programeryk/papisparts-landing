@@ -20,6 +20,7 @@ export const site = {
     e164: phone,
   },
   whatsapp: `https://wa.me/${phone.slice(1)}`,
+  mechanicWhatsapp: `https://wa.me/${phone.slice(1)}?text=${encodeURIComponent("Dzień dobry, potrzebuję mechanika.")}`,
   address,
   fullAddress,
   openingHours: [
@@ -38,7 +39,11 @@ export const site = {
   ],
   onlineHours: "24/7",
   responseTime: "Odpowiadamy w ciągu 15 minut lub najszybciej, jak możemy",
-  rating: { value: "4.7", count: 15 },
+  google: {
+    name: "Auto Części Drawsko Pomorskie ∴ PapisParts",
+    profile: "https://share.google/MKinuU64jeFVunsAD",
+    rating: { value: "4.7", count: 15 },
+  },
   maps: {
     link: `https://maps.google.com/?q=${encodeURIComponent(fullAddress)}`,
     embed:
@@ -48,6 +53,7 @@ export const site = {
 
 export const navigation = [
   { href: "#uslugi", label: "Usługi" },
+  { href: "#mechanik", label: "Mechanik" },
   { href: "#dlaczego-my", label: "Dlaczego my" },
   { href: "#opinie", label: "Opinie" },
   { href: "#kontakt", label: "Kontakt" },

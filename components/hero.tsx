@@ -1,6 +1,6 @@
 "use client";
 
-import { Phone } from "lucide-react";
+import { ArrowRight, Phone, Wrench } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
@@ -54,7 +54,7 @@ export function Hero() {
       id="top"
       aria-roledescription="karuzela"
       aria-label="Papis Parts – sklep motoryzacyjny"
-      className="relative isolate flex h-[72svh] max-h-[760px] min-h-[520px] touch-pan-y select-none items-center overflow-hidden bg-ink"
+      className="relative isolate flex h-[72svh] max-h-[760px] min-h-[620px] sm:min-h-[520px] touch-pan-y select-none items-center overflow-hidden bg-ink"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
@@ -131,9 +131,21 @@ export function Hero() {
             Napisz na WhatsApp
           </ButtonLink>
         </motion.div>
+        <motion.a
+          {...fadeUp(0.7)}
+          href="#mechanik"
+          className="group mt-7 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-left text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20 sm:text-base"
+        >
+          <Wrench className="size-4 shrink-0 text-brand" aria-hidden="true" />
+          Potrzebujesz mechanika? Polecimy sprawdzonych fachowców
+          <ArrowRight
+            className="size-4 shrink-0 transition-transform group-hover:translate-x-1"
+            aria-hidden="true"
+          />
+        </motion.a>
       </div>
 
-      <div className="absolute inset-x-0 bottom-8 flex justify-center gap-3">
+      <div className="absolute inset-x-0 bottom-6 flex justify-center gap-3">
         {slides.map((slide, i) => (
           <button
             key={slide.src}
