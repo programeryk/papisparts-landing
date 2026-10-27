@@ -55,7 +55,7 @@ export const navigation = [
   { href: "#uslugi", label: "Usługi" },
   { href: "#mechanik", label: "Mechanik" },
   { href: "#dlaczego-my", label: "Dlaczego my" },
-  { href: "#opinie", label: "Opinie" },
-  { href: "#kontakt", label: "Kontakt" },
   { href: "#lokalizacja", label: "Lokalizacja" },
+  { href: "#kontakt", label: "Kontakt" },
+  { href: "#opinie", label: "Opinie" },
 ] as const;

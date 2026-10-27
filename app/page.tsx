@@ -16,10 +16,10 @@ export default function HomePage() {
       <ServicesSection />
       <MechanicSection />
       <WhyUsSection />
-      <ReviewsSection />
-      <ContactSection />
-      <LocationSection />
       <CTASection />
+      <LocationSection />
+      <ContactSection />
+      <ReviewsSection />
     </>
   );
 }
